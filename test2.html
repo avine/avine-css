@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Test</title>
+
+	<link rel="shortcut icon" href="favicon.ico" />
+
+	<link rel="stylesheet" href="css/avine-css.css" />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+	<style>
+		.grid {
+			box-sizing: border-box;
+			text-align: justify;
+			padding: 0 1em 1em 1em;
+			/*border:1px dotted red;*/
+		}
+		.grid:after {
+			content: "";
+			display: block;
+			clear: left;
+		}
+		.grid > * {
+			float: left;
+			box-sizing: border-box;
+			
+			padding: 1em 1em 0 1em;
+			/*border:1px dotted green;*/
+		}
+
+		.grid-cell-20pc { width: 20%; }
+		.grid-cell-25pc { width: 25%; }
+		.grid-cell-33pc { width: 33.333333333%; }
+		.grid-cell-50pc { width: 50%; }
+		.grid-cell-66pc { width: 66.666666666%; }
+		.grid-cell-75pc { width: 75%; }
+		.grid-cell-80pc { width: 80%; }
+		.grid-cell-100pc { width: 100%; }
+
+		@media (min-width: 640px) {
+			.grid-cell-20pc-s { width: 20%; }
+			.grid-cell-25pc-s { width: 25%; }
+			.grid-cell-33pc-s { width: 33.333333333%; }
+			.grid-cell-50pc-s { width: 50%; }
+			.grid-cell-66pc-s { width: 66.666666666%; }
+			.grid-cell-75pc-s { width: 75%; }
+			.grid-cell-80pc-s { width: 80%; }
+			.grid-cell-100pc-s { width: 100%; }
+		}
+		@media (min-width: 960px) {
+			.grid-cell-20pc-l { width: 20%; }
+			.grid-cell-25pc-l { width: 25%; }
+			.grid-cell-33pc-l { width: 33.333333333%; }
+			.grid-cell-50pc-l { width: 50%; }
+			.grid-cell-66pc-l { width: 66.666666666%; }
+			.grid-cell-75pc-l { width: 75%; }
+			.grid-cell-80pc-l { width: 80%; }
+			.grid-cell-100pc-l { width: 100%; }
+		}
+
+	</style>
+</head>
+<body class="avn-env">
+
+	<div class="grid">
+		<div class="grid-cell-100pc grid-cell-50pc-s  grid-cell-33pc-l">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+		<div class="grid-cell-100pc grid-cell-50pc-s  grid-cell-33pc-l">
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+		</div>
+		<div class="grid-cell-100pc grid-cell-100pc-s  grid-cell-33pc-l">
+			Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+		</div>
+	</div>
+
+	
+
+	
+
+</body>
+</html>

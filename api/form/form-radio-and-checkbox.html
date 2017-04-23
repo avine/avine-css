@@ -1,0 +1,69 @@
+﻿s<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Form radio and checkboxes</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<style>
+		.demo { color:#f00; font-size:14px; font-weight:normal; font-style:normal; }
+		:hover > .demo { visibility: hidden; }
+	</style>
+</head>
+<body class="avn-env">
+	<div class="avn-area-bound avn-area-pad">
+
+		<form method="GET" action="#" class="avn-form">
+
+			 <fieldset class="avn-form-grid avn-form-label-right">
+				 <legend>Legend</legend>
+
+				 <div class="avn-grid avn-grid-medium">
+
+					<div class="avn-grid-w-120px"><label for="text1">Text 1</label></div>
+					<div><input type="text" id="text1" value="" /></div>
+
+				</div><div class="avn-grid avn-grid-medium">
+
+					<div class="avn-grid-w-120px"><label for="text2">Adress</label></div>
+					<div>
+						<div class="avn-grid avn-grid-small">
+							<div class="avn-grid-w-20pc avn-form-grid-space"><input type="text" id="text2" value="" placeholder="Number" /></div>
+							<div class="avn-grid-w-40pc avn-form-grid-space"><input type="text" id="text3" value="" placeholder="Type" /></div>
+							<div><input type="text" id="text4" value="" placeholder="Street" /></div>
+						</div>
+					</div>
+
+				</div><div class="avn-grid avn-grid-medium">
+
+					<div class="avn-grid-w-120px"><span class="avn-form-label">Radios :</span></div>
+					<div>
+						 <input type="radio" id="radio1-1" name="radio1" value="" /><label for="radio1-1">Radio 1</label>
+						 <input type="radio" id="radio1-2" name="radio1" value="" /><label for="radio1-2">Radio 2</label>
+						 <input type="radio" id="radio1-3" name="radio1" value="" /><label for="radio1-3">Radio 3</label>
+					</div>
+
+				</div><div class="avn-grid avn-grid-medium">
+
+					<div class="avn-grid-w-120px"><span class="avn-form-label">Checkboxes :</span></div>
+					<div>
+						 <input type="checkbox" id="checkbox1-1" name="checkbox1-1" value="" /><label for="checkbox1-1">Checkbox 1</label><br class="avn-grid-medium-v-only" />
+						 <input type="checkbox" id="checkbox1-2" name="checkbox1-2" value="" /><label for="checkbox1-2">Checkbox 2</label><br class="avn-grid-medium-v-only" />
+						 <input type="checkbox" id="checkbox1-3" name="checkbox1-3" value="" /><label for="checkbox1-3">Checkbox 3</label><br class="avn-grid-medium-v-only" />
+					</div>
+
+				</div>
+
+			</fieldset>
+
+			<input type="submit" value="Envoyer" onclick="return false;" />
+		</form>
+
+	</div>
+
+</body>
+</html>

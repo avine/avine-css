@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Toggle drop</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+    <script src="../../js/avine-js.js"></script>
+    <script src="../../js/avine-css.js"></script>
+
+    <script>
+        $.dom.ready(function () {
+			$('.avn-toggle').toggle().on('avnToggle', function(e) {
+				var isOpen = e.detail;
+				$('#demo-status strong').html(isOpen ? 'opened': 'closed');
+			});
+
+			$('.avn-drop').hover();
+        });
+    </script>
+
+</head>
+<body class="avn-env">
+
+	<div class="avn-area-fill avn-color-grey-lightest">
+		<div class="avn-area-bound avn-area-nopad">
+
+			<div class="avn-toggle avn-toggle-medium avn-hover">
+                <div class="avn-toggle-source avn-drop-height"><i class="fa fa-navicon"></i></div>
+                <div class="avn-toggle-target">
+
+					<div class="avn-grid-wrap avn-grid-border avn-drop-down avn-grid-embedded">
+						<div class="avn-grid avn-grid-medium avn-drop avn-hover-wrap avn-drop-right">
+							<div>
+								<span>Item 1</span><div>
+									Sub item 1
+								</div>
+							</div><div class="avn-color-grey-dark-hover">
+								<span>Item 2</span><div>
+									Sub item 2
+								</div>
+							</div><div>
+								<span>Item 3</span><div>
+									Sub item 3
+								</div>
+							</div><div class="avn-drop-left">
+								<span>Item 4</span><div>
+									Sub item 4
+								</div>
+							</div>
+						</div>
+					</div>
+
+                </div>
+            </div>
+
+		</div>
+	</div>
+
+	<div class="avn-area-fill avn-color-default">
+		<div class="avn-area-bound">
+
+			<p id="demo-status">Navbar is: <strong>closed</strong></p>
+
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+		</div>
+	</div>
+
+</body>
+</html>

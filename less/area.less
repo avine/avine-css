@@ -1,0 +1,72 @@
+/* ----
+   area
+   ---- */
+
+.avn-area-bound {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+	min-width: @width-min;
+	max-width: @width-large;
+	border-style: none;
+	border-color: @border-color;
+}
+.avn-area-fill {
+	position: relative;
+	border: 0 solid @border-color;
+	border-top-width: @border-width;
+	.fill-gradient-add();
+}
+.avn-area-nograd {
+	.fill-gradient-remove();
+}
+.avn-area-border {
+	border-bottom-width: @border-width;
+}
+
+.avn-area-bound > .avn-area-fill {
+	border-color: inherit;
+}
+@media (min-width: @width-large) {
+	.avn-area-bound {
+		> .avn-area-fill {
+			border-left-width: @border-width;
+			border-right-width: @border-width;
+			&:last-child {
+				border-bottom-width: @border-width;
+			}
+		}
+		& + & {
+			margin-top: -@border-width;
+		}
+		&.avn-area-spacing {
+			margin-top: @margin;
+		}
+	}
+	.avn-area-spacing {
+		margin-bottom: @margin;
+		box-shadow: @box-shadow;
+		border-radius: @border-radius-large;
+		.border-radius-child-inherit();
+	}
+	.avn-area-noshad {
+		box-shadow: none !important;
+	}
+}
+
+.avn-area-pad,
+.avn-area-bound > .avn-area-fill,
+.avn-area-fill > .avn-area-bound {
+	padding: @padding-v @padding-h;
+}
+.avn-area-pad-large {
+	padding: (@margin - @line-height-less) @margin !important;
+}
+.avn-area-nopad {
+	padding: 0 !important;
+}
+
+.avn-area-margin {
+	margin: @margin !important;
+}

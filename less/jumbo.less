@@ -1,0 +1,68 @@
+/* -----
+   jumbo
+   ----- */
+
+.avn-jumbo {
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	align-items: stretch;
+	align-content: stretch;
+
+	> * {
+		box-sizing: border-box;
+		flex-grow: 1;
+
+		transition: margin .3s ease;
+	}
+}
+.avn-jumbo-nowrap {
+	flex-wrap: nowrap;
+}
+
+// vertical align
+.avn-jumbo-top { align-items: flex-start; align-content: flex-start; }
+.avn-jumbo-middle { align-items: center; align-content: center; }
+.avn-jumbo-bottom { align-items: flex-end; align-content: flex-end; }
+
+// horizontal align
+.avn-jumbo-left, .avn-jumbo-center, .avn-jumbo-right {
+	> * {
+		flex-grow: 0;
+	}
+}
+.avn-jumbo-left { justify-content: flex-start; }
+.avn-jumbo-center { justify-content: center; }
+.avn-jumbo-right { justify-content: flex-end; }
+
+.avn-jumbo-column {  // Use only when .avn-jumbo-wrap have height:auto;
+	flex-direction: column;
+	> * {
+		flex-grow: 1;
+	}
+
+	// remove "row" styles
+	&.avn-jumbo-top, &.avn-jumbo-middle, &.avn-jumbo-bottom { align-items: initial; align-content: initial; }
+	&.avn-jumbo-left, &.avn-jumbo-center, &.avn-jumbo-right { justify-content: initial; }
+
+	// vertical align
+	&.avn-jumbo-top, &.avn-jumbo-middle, &.avn-jumbo-bottom {
+		> * {
+			flex-grow: 0;
+		}
+	}
+	&.avn-jumbo-top { justify-content: flex-start; }
+	&.avn-jumbo-middle { justify-content: center; }
+	&.avn-jumbo-bottom { justify-content: flex-end; }
+
+	// horizontal align
+	&.avn-jumbo-left { align-items: flex-start; align-content: flex-start;  }
+	&.avn-jumbo-center { align-items: center; align-content: center; }
+	&.avn-jumbo-right { align-items: flex-end; align-content: flex-end; }
+}
+
+.avn-jumbo-spacing > * { margin: @spacing-px; }
+.avn-jumbo-spacing-large > * { margin: @spacing-large-px; }

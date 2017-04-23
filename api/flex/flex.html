@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Flex - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../prism/prism.css" />
+	<script src="../../prism/prism.js"></script>
+</head>
+<body class="avn-env avn-align-center">
+
+	<script>
+		demoClick('Area bound fill', function () {
+			$('#demo-target').toggleClass('avn-area-spacing').children().toggleClass('avn-area-fill');
+		}).demoClick('Flex no-pad', function () {
+			$('#demo-target').children().toggleClass('avn-flex-nopad');
+		}).demoClick('Flex no-wrap', function () {
+			$('.demo-nowrap').toggleClass('avn-flex-nowrap');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="avn-area-bound" id="demo-target">
+		<div class="demo-color-switcher">
+			<div class="avn-flex">
+
+				<div class="avn-flex-12">12</div>
+
+			</div><div class="avn-flex demo-nowrap">
+
+				<div class="avn-flex-1 avn-color-grey-lighter">__1__</div>
+				<div class="avn-flex-11">11</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-2 avn-color-grey-lighter">2</div>
+				<div class="avn-flex-10">10</div>
+
+				<div class="avn-flex-3 avn-color-grey-lighter">3</div>
+				<div class="avn-flex-9">9</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-4 avn-color-grey-lighter">4</div>
+				<div class="avn-flex-8">8</div>
+
+				<div class="avn-flex-5 avn-color-grey-lighter">5</div>
+				<div class="avn-flex-7">7</div>
+
+				<div class="avn-flex-6 avn-color-grey-lighter">6</div>
+				<div class="avn-flex-6">6</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<br /><br /><br />
+
+	<div id="demo-links-addon"></div>
+	<script>
+		demoClick.target = '#demo-links-addon';
+		demoClick('Area fill bound', function () {
+			$('#demo-target2').children().toggleClass('avn-area-bound');
+		}).demoClick('Flex no-pad', function () {
+			$('#demo-target2').children().toggleClass('avn-flex-nopad');
+		}).demoClick('Flex no-wrap', function () {
+			$('.demo-nowrap2').toggleClass('avn-flex-nowrap');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="avn-area-fill demo-color-switcher" id="demo-target2">
+		<div class="">
+			<div class="avn-flex">
+
+				<div class="avn-flex-12">12</div>
+
+			</div><div class="avn-flex demo-nowrap2">
+
+				<div class="avn-flex-1 avn-color-grey-lighter">__1__</div>
+				<div class="avn-flex-11">11</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-2 avn-color-grey-lighter">2</div>
+				<div class="avn-flex-10">10</div>
+
+				<div class="avn-flex-3 avn-color-grey-lighter">3</div>
+				<div class="avn-flex-9">9</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-4 avn-color-grey-lighter">4</div>
+				<div class="avn-flex-8">8</div>
+
+				<div class="avn-flex-5 avn-color-grey-lighter">5</div>
+				<div class="avn-flex-7">7</div>
+
+				<div class="avn-flex-6 avn-color-grey-lighter">6</div>
+				<div class="avn-flex-6">6</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div id="demo-doc">
+<hgroup>
+	<h2>Grille de mise en page</h2>
+</hgroup>
+
+<p>Les grilles de mise en page sont basées sur le modèle de boîtes "flex".
+	La trame de la grille comporte jusqu'à 12 cellules.
+	Par défaut chaque cellule s'étend sur toute la largeur de la trame.
+	Pour organiser les cellules sur l'axe horizontal, définissez pour chacune une largeur sous la forme <code>.avn-flex-[X]</code>, avec <code>X</code> compris entre <code>1</code> et <code>12</code>.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex">
+	<!-- row of 2 cells : 6 + 6 = 12 -->
+	<div class="avn-flex-6">1.1</div>
+	<div class="avn-flex-6">1.2</div>
+
+	<!-- row of 3 cells : 4 + 4 + 4 = 12 -->
+	<div class="avn-flex-4">2.1</div>
+	<div class="avn-flex-4">2.2</div>
+	<div class="avn-flex-4">2.3</div>
+
+	<!-- row of 4 cells : 3 + 3 + 3 + 3 = 12 -->
+	<div class="avn-flex-3">3.1</div>
+	<div class="avn-flex-3">3.2</div>
+	<div class="avn-flex-3">3.3</div>
+	<div class="avn-flex-3">3.4</div>
+</div>
+
+</div>
+
+<p>Vous pouvez utiliser le module "Grille" de manière autonome, ou bien le combiner aux patterns "bound &gt; fill" ou "fill &gt; bound".</p>
+
+<div class="demo-code">
+
+<div class="avn-area-bound">
+	<div class="avn-area-fill">
+		<div class="avn-flex">
+			<div>Lorem ipsum</div>
+			<div>Lorem ipsum</div>
+		</div>
+	</div>
+</div>
+
+<div class="avn-area-fill">
+	<div class="avn-area-bound">
+		<div class="avn-flex">
+			<div>Lorem ipsum</div>
+			<div>Lorem ipsum</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<p>La classe <code>.avn-flex-nopad</code> permet de retirer les marges internes de la grille.
+	Voici un exemple avec le pattern "bound &gt; fill".</p>
+
+<div class="demo-code">
+
+<div class="avn-area-bound">
+	<div class="avn-area-fill avn-flex-nopad">
+		<div class="avn-flex">
+			<div>Lorem ipsum</div>
+			<div>Lorem ipsum</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<div class="avn-text-box avn-color-grey-dark">
+	<p class="avn-icon avn-icon-block avn-icon-before avn-icon-info">
+		Avec le module "Grille", vous devez utiliser la classe <code>.avn-flex-nopad</code> à la place de <code>.avn-area-nopad</code>, dont nous avons parlé dans le module "Région".
+	</p>
+</div>
+
+<p>Pour éviter que sur les petits écrans, des cellules ne poussent les suivantes à la ligne, ajoutez la classe <code>.avn-flex-nowrap</code>.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex avn-flex-nowrap">
+	<div class="avn-flex-1">Long text in a small cell...</div>
+	<div class="avn-flex-12">Lorem ipsum</div>
+</div>
+<div class="avn-flex">
+	<div class="avn-flex-6">Lorem ipsum</div>
+	<div class="avn-flex-6">Lorem ipsum</div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

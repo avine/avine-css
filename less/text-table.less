@@ -1,0 +1,89 @@
+
+/* text table */
+
+table, .avn-table-wrap {
+	&:extend(.avn-text-margin);
+}
+
+.avn-table-wrap {
+	width: 100%;
+	overflow: auto;
+	> table {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+.avn-table {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align: left;
+
+	tr {
+		vertical-align: top;
+		transition: background-color @transition-fast ease;
+	}
+	th {
+		background-color: @background-color;
+	}
+	th, td {
+		padding: @padding-v @padding-h;
+		border: @border-width solid @border-color;
+		border-width: 1px 0;
+	}
+
+	tr {
+		&:first-child {
+			th, td { border-top-width: 0; }
+		}
+		&:last-child {
+			th, td { border-bottom-width: 0; }
+		}
+	}
+
+	table& {
+		&.avn-table-bordered {
+			th, td { border-width: @border-width; }
+		}
+		th { border-bottom-width: (@border-width * 2)/* !important*/; }
+	}
+}
+.avn-table-align-left { margin-left: initial; }
+.avn-table-align-right { margin-right: initial; }
+
+.avn-table-condensed {
+	th, td {
+		padding: (@padding-v / 1.5) (@padding-h / 1.5);
+	}
+}
+.avn-table-striped tr:nth-child(even) { background-color: rgba(0,0,0,@alpha-lowest); }
+.avn-table-hover tr:hover { background-color: rgba(255,255,0,@alpha-medium); }
+
+// vertical align
+table.avn-table-valign-top tr > * { vertical-align: top; }
+table.avn-table-valign-middle tr > * { vertical-align: middle; }
+table.avn-table-valign-bottom tr > * { vertical-align: bottom; }
+
+table tr.avn-table-valign-top > * { vertical-align: top; }
+table tr.avn-table-valign-middle > * { vertical-align: middle; }
+table tr.avn-table-valign-bottom > * { vertical-align: bottom; }
+
+table tr > .avn-table-valign-top { vertical-align: top; }
+table tr > .avn-table-valign-middle { vertical-align: middle; }
+table tr > .avn-table-valign-bottom  { vertical-align: bottom; }
+
+.color-addons() {
+	.avn-table {
+		th { background-color: @background; }
+		th, td { border-color: lighten(desaturate(@background, @color-saturation-x), 2 * @color-lightness-x * @x); }
+	}
+}
+.color-addons() when (@x = -1) {
+	.avn-table-striped tr:nth-child(even) { background-color: rgba(0,0,0,@alpha-lowest); }
+	.avn-table-hover tr:hover { background-color: rgba(255,255,0,@alpha-medium); }
+}
+.color-addons() when (@x = +1) {
+	.avn-table-striped tr:nth-child(even) { background-color: rgba(255,255,255,@alpha-lowest); }
+	.avn-table-hover tr:hover { background-color: rgba(255,255,0,@alpha-medium); }
+}

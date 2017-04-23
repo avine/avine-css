@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>AvineCSS framework</title>
+
+	<link rel="shortcut icon" href="favicon.ico" />
+
+	<link rel="stylesheet" href="css/avine-css.css" />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+
+	<script src="js/avine-js.js"></script>
+	<script src="js/avine-css.js"></script>
+
+	<link rel="stylesheet" href="tools/tools.css" />
+	<script src="tools/tools.js"></script>
+
+	<style>
+		body {
+			background: url(images/bg/ticks_@2X.png) repeat #e1e1e1;
+			background-size: 200px 200px;
+		}
+
+		@media (min-width: 720px) {
+			ul {
+				max-height: 220px;
+				overflow: auto;
+			}
+			ul:hover {
+				max-height: none;
+			}
+		}
+		
+		header  {
+			box-shadow: 0 0 20px rgba(0,0,0,.5);
+		}
+		header h1 {
+			margin: 0;
+			text-shadow: -2px -2px 0px rgba(0,0,0,.1);
+		}
+		header#header-small h1 {
+			font-size: 32px;
+			line-height: 1em;
+			text-align: center;
+		}
+
+		footer a {
+			text-decoration: none;
+		}
+
+		.avn-carousel > * {
+			padding: 0 50px;
+			text-shadow: 4px 4px 2px #bbb;
+		}
+		.avn-carousel h3 {
+			display: inline-block;
+		}
+		.avn-carousel .rotate {
+			display: inline-block;
+			transform:rotate(-5deg);
+		}
+		@media (min-width: 960px) {
+			.avn-carousel { font-size: 1.5em; }
+		}
+
+		.demo-back {
+			display: none;
+		}
+	</style>
+</head>
+<body class="avn-env">
+
+	<!-- Big header -->
+	<header class="avn-area-fill avn-area-border avn-color-primary">
+		<div class="avn-area-bound">
+			<div class="avn-grid avn-grid-small avn-grid-align-middle">
+				<div class="avn-grid-w-120px avn-align-center">
+					<a href="index.html"><img src="images/logo/logo-128.png" width="64" height="64" alt="Avine" /></a>
+				</div><div class="avn-align-left">
+					<h1>AvineCSS <small>framework</small></h1>
+				</div>
+			</div>
+		</div>
+	</header><!-- /Big header -->
+
+	<!-- Small header --
+	<header class="avn-area-fill avn-area-border avn-color-primary" id="header-small">
+		<div class="avn-area-bound avn-area-pad">
+			<h1><img src="images/logo/logo-64.png" width="32" height="32" alt="AvineCSS" /> AvineCSS</h1>
+		</div>
+	</header><!-- /Small header -->
+
+	<!-- Main -->
+	<div class="avn-area-fill">
+		<div class="avn-area-bound avn-area-nopad">
+
+			<!-- Carousel -->
+			<div class="avn-carousel-wrap">
+				<div class="avn-carousel avn-align-center">
+
+					<div>
+						<h3 class="avn-icon avn-icon-block avn-icon-before avn-icon-medium">
+							<i class="fa fa-camera-retro avn-icon-item-before"></i>
+							Responsive design,<br class="avn-grid-medium-h-only" />
+							il s'adapte à tous les supports.
+						</h3>
+					</div><div>
+						<h3 class="avn-icon avn-icon-block avn-icon-before avn-icon-medium">
+							<i class="fa fa-code avn-icon-item-before"></i>
+							&Eacute;crit avec Less,<br class="avn-grid-medium-h-only" />
+							il est modulaire et extensible.
+						</h3>
+					</div><div>
+						<h3 class="avn-icon avn-icon-block avn-icon-before avn-icon-medium">
+							<i class="fa fa-paper-plane avn-icon-item-before"></i>
+							<span class="rotate">Alors...<br  />
+							amusez-vous bien&nbsp;!</span>
+						</h3>
+					</div>
+
+				</div>
+			</div>
+			<script>
+				$.dom.ready(function () {
+					$('.avn-carousel').carousel({ pagination: false });
+				});
+			</script><!-- /Carousel -->
+
+			<div class="avn-area-margin avn-align-center">
+				<hr />
+				<p>AvineCSS est comme son nom laisse entendre, un framework CSS.<br class="avn-grid-medium-h-only" />
+					Découvrez ses principales fonctionnalités grâce à cette documentation.</p>
+			</div>
+
+			<!-- Index -->
+			<nav class="avn-flex-border avn-flex-spacing-large avn-flex-radius demo-link2iframe">
+				<div class="avn-flex">
+					<div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Color</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/color/color.html">Default</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Text</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/text/text.html">Default</a></li>
+							<li><a href="api/text/text-hx.html">h1, ..., h6</a></li>
+							<li><a href="api/text/text-hr-br.html">hr, br</a></li>
+							<li><a href="api/text/text-list.html">List</a></li>
+							<li><a href="api/text/text-blockquote.html">blockquote</a></li>
+							<li><a href="api/text/text-table.html">Table</a></li>
+							<li><a href="api/text/text-pre-code.html">Pre, Code</a></li>
+							<li><a href="api/text/text-align.html">Align</a></li>
+							<li><a href="api/text/text-box.html">Box</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Icon</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/icon/icon-inline.html">Inline</a></li>
+							<li><a href="api/icon/icon-block.html">Block</a></li>
+							<li><a href="api/icon/icon-size.html">Size</a></li>
+							<li><a href="api/icon/icon-type.html">Type</a></li>
+							<li><a href="api/icon/icon-item.html">Item</a></li>
+							<li><a href="api/icon/icon-box-color.html">Box color</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Area</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/area/area-bound.html">Bound</a></li>
+							<li><a href="api/area/area-fill.html">Fill</a></li>
+							<li><a href="api/area/area-bound-fill.html">Bound fill</a></li>
+							<li><a href="api/area/area-fill-bound.html">Fill bound</a></li>
+							<li><a href="api/area/area-bound-spacing.html">Bound spacing</a></li>
+							<li><a href="api/area/area-bound-fill-over.html">Bound fill over</a></li>
+							<li><a href="api/area/area-bound-fill-color.html">Bound fill color</a></li>
+							<li><a href="api/area/area-fill-bound-color.html">Fill bound color</a></li>
+							<li><a href="api/area/area-bound-fill-over-left-right.html">Bound fill over left and right</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Flex</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/flex/flex.html">Flex</a></li>
+							<li><a href="api/flex/flex-border.html">Flex border</a></li>
+							<li><a href="api/flex/flex-spacing.html">Flex spacing</a></li>
+							<li><a href="api/flex/flex-border-spacing.html">Flex border spacing</a></li>
+							<li><a href="api/flex/flex-nested.html">Flex nested</a></li>
+							<li><a href="api/flex/flex-responsive.html">Flex responsive</a></li>
+							<li><a href="api/flex/flex-3-columns.html">Flex 3 columns</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Grid</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/grid/grid.html">Default</a></li>
+							<li><a href="api/grid/grid-width.html">Width</a></li>
+							<li><a href="api/grid/grid-3-columns.html">3 columns (deprecated)</a></li>
+							<li><a href="api/grid/grid-spacing.html">Spacing</a></li>
+							<li><a href="api/grid/grid-spacing-fit.html">Spacing fit</a></li>
+							<li><a href="api/grid/grid-spacing-large.html">Spacing large</a></li>
+							<li><a href="api/grid/grid-spacing-large-fit.html">Spacing large fit</a></li>
+							<li><a href="api/grid/grid-spacing-fill.html">Spacing fill</a></li>
+							<li><a href="api/grid/grid-border.html">Border</a></li>
+							<li><a href="api/grid/grid-border-spacing-large.html">Border spacing large</a></li>
+							<li><a href="api/grid/grid-border-spacing.html">Border spacing</a></li>
+							<li><a href="api/grid/grid-border-spacing-radius-full.html">Border spacing radius full</a></li>
+							<li><a href="api/grid/grid-embedded.html">Embedded</a></li>
+							<li><a href="api/grid/grid-aside-border.html">Aside border</a></li>
+							<li><a href="api/grid/grid-aside-border-spacing.html">Aside border spacing</a></li>
+							<li><a href="api/grid/grid-header.html">Header</a></li>
+							<li><a href="api/grid/grid-line.html">Line</a></li>
+						</ul>
+
+					</div>
+
+					<div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Drop</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/drop/drop.html">Default</a></li>
+							<li><a href="api/drop/drop-fill.html">Fill</a></li>
+							<li><a href="api/drop/drop-border.html">Border</a></li>
+							<li><a href="api/drop/drop-border-spacing.html">Border spacing</a></li>
+							<li><a href="api/drop/drop-border-spacing-radius-full.html">Border spacing radius full</a></li>
+							<li><a href="api/drop/drop-inline-fixed.html">Inline fixed</a></li>
+							<li><a href="api/drop/drop-fixed-full.html">Fixed full</a></li>
+							<li><a href="api/drop/drop-auto-width-fixed-full.html">Auto width fixed full</a></li>
+							<li><a href="api/drop/drop-empty.html">Empty cell</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Menu</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/menu/menu.html">Default</a></li>
+							<li><a href="api/menu/menu-sibling.html">Sibling</a></li>
+							<li><a href="api/menu/menu-sublevel-1.html">Sublevel 1</a></li>
+							<li><a href="api/menu/menu-sublevel-2.html">Sublevel 2</a></li>
+							<li><a href="api/menu/menu-long-text.html">Long text</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Toggle</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/toggle/toggle.html">Toggle</a></li>
+							<li><a href="api/toggle/toggle-drop.html">Toggle drop</a></li>
+						</ul>
+
+					</div>
+
+					<div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">App</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/app/app.html">Default</a></li>
+							<li><a href="api/app/app-hide-top.html">Hide top</a></li>
+							<li><a href="api/app/app-hide-bottom.html">Hide bottom</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Carousel</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/carousel/carousel.html">Default</a></li>
+							<li><a href="api/carousel/carousel-itemsperpage.html">Items per page</a></li>
+							<li><a href="api/carousel/carousel-app.html">App</a></li>
+						</ul>
+
+					</div><div class="avn-flex-4-large avn-flex-6-medium">
+
+						<h2 class="avn-grid-header">Flap</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/flap/flap.html">Default</a></li>
+							<li><a href="api/flap/flap-pad.html">Pad</a></li>
+						</ul>
+
+					</div>
+
+					<div class="avn-flex-12-medium">
+
+						<h2 class="avn-grid-header">Form</h2>
+						<ul class="avn-list-nav">
+							<li><a href="api/form/form.html">Default</a></li>
+							<li><a href="api/form/form-disabled-readonly.html">Disabled and readonly</a></li>
+							<li><a href="api/form/form-columns.html">Columns</a></li>
+							<li><a href="api/form/form-radio-and-checkbox.html">Radio and checkboxes</a></li>
+						</ul>
+
+					</div>
+				</div>
+			</nav><!-- /Index -->
+
+		</div>
+	</div><!-- /Main -->
+
+	<!-- /Download -->
+	<div class="avn-area-fill avn-color-grey-darker avn-align-center" style="font-size:2em;">
+		<div class="avn-area-bound">
+			<a href="css/avine-css.css" style="text-decoration:none;"><i class="fa fa-download"></i> &nbsp; Télécharger</a><br />
+		</div>
+	</div><!-- /Download -->
+
+	<!-- /Footer -->
+	<footer class="avn-area-fill avn-color-grey-dark avn-align-center avn-align-right-medium">
+		<div class="avn-area-bound">
+			<a href="http://avine.fr/">2014-2015 &copy; Avine</a>
+		</div>
+	</footer><!-- /Footer -->
+
+</body>
+</html>

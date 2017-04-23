@@ -1,0 +1,97 @@
+
+/* area-over left and right */
+
+@media (min-width: (@width-large + @area-over * 4)) {
+	.avn-area-over-left, .avn-area-over-right {
+		box-sizing: border-box;
+		position: absolute !important;
+		z-index: 1;
+		margin: 0 !important;
+	}
+	.avn-area-over-left { left: @padding-h; }
+	.avn-area-over-right { right: @padding-h; }
+
+	.avn-area-over-bottom.avn-area-over-left,
+	.avn-area-over-bottom.avn-area-over-right {
+		top: -(@area-over + @border-width);
+		border-radius: 0 0 @border-radius-large @border-radius-large !important;
+	}
+	.avn-area-over-top.avn-area-over-left,
+	.avn-area-over-top.avn-area-over-right {
+		bottom: -(@area-over + @border-width);
+		border-radius: @border-radius-large @border-radius-large 0 0 !important;
+	}
+
+	.avn-area-over-bottom.avn-area-over-left:after {
+		right: -(2 * @area-over + @border-width);
+		top: -@border-width;
+	}
+	.avn-area-over-bottom.avn-area-over-right:before {
+		left: -(2 * @area-over + @border-width);
+		top: -@border-width;
+	}
+
+	.avn-area-over-top.avn-area-over-left:after {
+		right: -(2 * @area-over + @border-width);
+		bottom: -@border-width;
+	}
+	.avn-area-over-top.avn-area-over-right:before {
+		left: -(2 * @area-over + @border-width);
+		bottom: -@border-width;
+	}
+
+	.avn-area-over-left:before,
+	.avn-area-over-right:after {
+		display: none;
+	}
+
+	// over wrap and main (designed for over left and right)
+
+	.avn-area-over-wrap-main(@name, @size) {
+		.avn-area-over-wrap-@{name} .avn-area-over-left,
+		.avn-area-over-wrap-@{name} .avn-area-over-right {
+			width: @size;
+		}
+		.avn-area-over-main-left-@{name} { margin-left: @size + @padding-h; }
+		.avn-area-over-main-right-@{name} { margin-right: @size + @padding-h; }
+	}
+	.avn-area-over-wrap-main(3, 21em); // means 3 childs
+	.avn-area-over-wrap-main(2, 30.5em); // means 2 childs
+}
+
+.avn-area-over-left,
+.avn-area-over-right {
+	position: relative;
+	margin-top: @text-margin-top;
+	margin-bottom: @text-margin-top; // notice: use the same as margin-top (not @text-margin-bottom)
+	padding-left: @padding-h;
+	padding-right: @padding-h;
+	border-radius: @border-radius-large;
+	box-shadow: @box-shadow;
+	border: @border-width solid @border-color;
+	background-color: @background-color;
+}
+
+.avn-area-over-bottom.avn-area-over-left:first-child,
+.avn-area-over-bottom.avn-area-over-right:first-child {
+	margin-top: 0;
+}
+.avn-area-over-top.avn-area-over-left:last-child,
+.avn-area-over-top.avn-area-over-right:last-child {
+	margin-bottom: 0;
+}
+
+/* over scroll (designed for over left and right) */
+
+.avn-area-over-scroll {
+	box-sizing: border-box;
+	overflow: auto;
+	height: inherit;
+	max-height: inherit;
+	padding: @padding-v @padding-h;
+}
+.avn-area-over-left > .avn-area-over-scroll,
+.avn-area-over-right > .avn-area-over-scroll {
+	margin-left: -@padding-h;
+	margin-right: -@padding-h;
+}

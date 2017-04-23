@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Flex border spacing - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../prism/prism.css" />
+	<script src="../../prism/prism.js"></script>
+</head>
+<body class="avn-env avn-align-center">
+
+	<script>
+		demoClick('Area Fill', function () {
+			$('#demo-target').toggleClass('avn-area-spacing').children().toggleClass('avn-area-fill');
+		}).demoClick('Flex radius', function () {
+			$('#demo-target').children().toggleClass('avn-flex-radius');
+		}).demoClick('Flex no-pad', function () {
+			$('#demo-target').children().toggleClass('avn-flex-nopad');
+		}).demoClick('Flex large', function () {
+			$('#demo-target').children().toggleClass('avn-flex-spacing avn-flex-spacing-large');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="avn-area-bound" id="demo-target">
+		<div class="avn-flex-border avn-flex-spacing demo-color-switcher">
+			<div class="avn-flex">
+
+				<div class="avn-flex-12">12</div>
+
+			</div><div class="avn-flex avn-flex-nowrap">
+
+				<div class="avn-flex-1 avn-color-grey-lighter">_1_</div>
+				<div class="avn-flex-11">11</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-2 avn-color-grey-lighter">2</div>
+				<div class="avn-flex-10">10</div>
+
+				<div class="avn-flex-3 avn-color-grey-lighter">3</div>
+				<div class="avn-flex-9">9</div>
+
+				<div class="avn-flex-4 avn-color-grey-lighter">4</div>
+				<div class="avn-flex-8">8</div>
+
+				<div class="avn-flex-5 avn-color-grey-lighter">5</div>
+				<div class="avn-flex-7">7</div>
+
+				<div class="avn-flex-6 avn-color-grey-lighter">6</div>
+				<div class="avn-flex-6">6</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div id="demo-doc">
+<hgroup>
+	<h2>Grille de mise en page</h2>
+	<h3>Avec bord et espacement</h3>
+</hgroup>
+
+<p>La classe <code>.avn-flex-border.avn-flex-spacing</code> permet de créer des grilles dont les cellules possèdent un bord et sont espacées.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-border avn-flex-spacing">
+	<div class="avn-flex">
+		<div>Lorem ipsum</div>
+		<div>Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+<p>Dans cette configuration, vous pouvez définir une couleur globale pour l'ensemble des cellules et si besoin la surcharger au niveau de chaque cellule.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-border avn-flex-spacing">
+	<div class="avn-flex avn-color-grey-light"><!-- global grid color -->
+		<div>Lorem ipsum</div>
+		<div class="avn-color-grey-dark">Lorem ipsum</div><!-- local cell color -->
+		<div>Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

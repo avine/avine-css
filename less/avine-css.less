@@ -1,0 +1,59 @@
+/* Avine. Copyright (c) 2014-2015 S. Francel (http://avine.fr). Dual licensed under the MIT and GPL Version 2 licenses. */
+
+@import "variables";
+
+@import "mixins";
+
+//@import "ie-html5";
+
+@import "text";
+@import "text-table";
+@import "text-code";
+@import "text-adds";
+
+@import "icon";
+
+@import "area";
+@import "area-over";
+@import "area-over-lr";
+
+@import "flex";
+@import "flex-border-spacing";
+
+@import "jumbo";
+
+@import "grid";
+@import "grid-wrap";
+@import "grid-fill";
+@import "grid-aside";
+@import "grid-line";
+
+@import "drop";
+@import "drop-grid";
+
+@import "menu";
+
+@import "toggle";
+
+@import "app";
+
+@import "flap";
+
+@import "form";
+
+@import "carousel";
+
+@import "color";
+
+@import "helper";
+
+@import "custom";
+
+// When you need to handle the :hover pseudo-class in both CSS and Javascript, use the following pattern:
+// Attach :hover to .avn-hover or to the children of .avn-hover-wrap.
+// Then, when you need to disable the CSS :hover behaviour to handle it in Javascript dynamically,
+// simply remove the CSS classes .avn-hover and .avn-hover-wrap
+// and use .avn-hover-jsOut / .avn-hover-jsOver in Javascript instead.
+.avn-hover-wrap > *, .avn-hover, .avn-hover-jsOut {}
+.avn-hover-jsOut:hover {} // Middle state
+.avn-hover-wrap > :hover, .avn-hover:hover, .avn-hover-jsOver {}

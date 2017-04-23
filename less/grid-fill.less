@@ -1,0 +1,51 @@
+
+/* grid spacing with cell -fill or -nofill */
+
+.avn-grid-spacing > .avn-grid > * > .avn-grid-fill { margin-bottom: @padding-h; }
+.avn-grid-spacing-large > .avn-grid > * > .avn-grid-fill { margin-bottom: @margin; }
+
+.avn-grid-spacing,
+.avn-grid-spacing-large {
+	> .avn-grid {
+		> .avn-grid-fill, > * > .avn-grid-fill {
+			.grid-cell-bg;
+			background-color: @background-color;
+			box-shadow: @box-shadow, 1px 1px 0 @grid-shadow-inset;
+			border: @border-width solid @border-color;
+		}
+		> .avn-grid-fill > *, > * > .avn-grid-fill {
+			&:first-child {
+				border-top-left-radius: inherit;
+				border-top-right-radius: inherit;
+			}
+			&:last-child {
+				border-bottom-left-radius: inherit;
+				border-bottom-right-radius: inherit;
+			}
+		}
+		> * > .avn-grid-fill:last-child { margin-bottom: 0; }
+	}
+	&.avn-grid-radius-full > .avn-grid > * > .avn-grid-fill {
+		border-radius: inherit;
+	}
+	&.avn-grid-border {
+		.avn-grid-nofill {
+			box-shadow: none !important;
+			border: none !important;
+			background: none !important;
+			text-shadow: none;
+			color: @text-color;
+		}
+	}
+}
+
+/* grid noshad */
+
+.avn-grid-noshad {
+	box-shadow: none !important;
+	> .avn-grid > * {
+		&, > .avn-grid-fill {
+			box-shadow: 1px 1px 0 @grid-shadow-inset !important;
+		}
+	}
+}

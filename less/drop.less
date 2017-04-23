@@ -1,0 +1,84 @@
+/* ----
+   drop
+   ---- */
+
+@drop-height: (@line-height + 2 * @padding-v);
+@drop-height-small: (1em + 2 * @padding-v);
+@drop-padding-v-small: (@padding-v - @line-height-less);
+
+.avn-drop-height {
+	padding: 0 @padding-h;
+	height: @drop-height;
+	line-height: @drop-height;
+}
+.avn-drop-height-small {
+	padding: 0 @padding-h;
+	height: @drop-height-small;
+	line-height: @drop-height-small;
+}
+
+.avn-drop, .avn-drop > * {
+	position: relative;
+	padding: 0 !important;
+}
+
+.avn-drop {
+	> * > :first-child {
+		position: relative;
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		.avn-drop-height;
+
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+	}
+	> * > :last-child {
+		position: absolute;
+		left: -9999px;
+		padding: @padding-v @padding-h;
+
+		border-bottom-left-radius: inherit;
+		border-bottom-right-radius: inherit;
+	}
+	&.avn-hover-wrap > :hover, > .avn-hover-jsOver {
+		> :last-child {
+			position: relative;
+			left: auto;
+		}
+	}
+	> .avn-drop-empty > :last-child {
+		position: absolute !important;
+		left: -9999px !important;
+	}
+}
+
+.avn-drop-small > * {
+	> :first-child {
+		.avn-drop-height-small;
+	}
+	> :last-child {
+		padding-top: @drop-padding-v-small;
+		padding-bottom: @drop-padding-v-small;
+	}
+}
+
+.avn-drop-fill {
+	> * { border: @border-width solid transparent; }
+	&.avn-hover-wrap > :hover, > .avn-hover-jsOver {
+		box-shadow: @box-shadow;
+		border-color: @border-color;
+		background-color: @background-color;
+		> * { transition: opacity 0s ease !important; }
+	}
+}
+
+.avn-drop {
+	> .avn-hover-jsOver, > .avn-hover-jsOut {
+		> :first-child{
+			user-select: none;
+			cursor: pointer;
+		}
+	}
+}

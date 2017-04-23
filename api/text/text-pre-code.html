@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Text pre, code - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+</head>
+<body class="avn-env">
+
+	<div class="avn-area-fill demo-color-switcher">
+		<div class="avn-area-bound">
+
+
+
+<h2>Pre</h2>
+<pre>
+&lt;script&gt;
+function hello() {
+	return 'Hello world!';
+}
+&lt;/script&gt;
+</pre>
+
+<hr />
+
+<h2>Code</h2>
+<code>
+&lt;script&gt;<br />
+function hello() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 'Hello world!';<br />
+}<br />
+&lt;/script&gt;
+</code>
+
+<hr />
+
+<h2>Pre > Code</h2>
+<pre><code>&lt;script&gt;
+function hello() {
+	return 'Hello world!';
+}
+&lt;/script&gt;</code></pre>
+
+<hr />
+
+<h2>Pre > Code <small>(unstyled)</small></h2>
+<pre><code class="avn-code-unstyled">&lt;script&gt;
+function hello() {
+	return 'Hello world!';
+}
+&lt;/script&gt;</code></pre>
+
+<hr />
+
+<h2>Code in paragraph</h2>
+<p>In programming languages, the keyword <code>function</code> is very important in programming language...<br />
+	Structures like <code>if {} else {}</code>, or <code>switch () {}</code> are very usefull also...</p>
+
+
+
+		</div>
+	</div>
+
+	<div id="demo-doc">
+		<h2 class="avn-first-child">Les contenus formatés et le code source</h2>
+
+		<p>Cette page montre le rendu du code <code>&lt;pre&gt;</code> et  <code>&lt;code&gt;</code>.</p>
+
+		<p>Pour retirer le bord de la classe <code>pre code</code> utilisez la classe <code>.avn-code-unstyled</code>.</p>
+
+<pre><code>&lt;pre&gt;
+	&lt;code class="avn-code-unstyled"&gt;
+		function hello() {
+			return 'Hello world!';
+		}
+	&lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+
+	</div>
+</body>
+</html>

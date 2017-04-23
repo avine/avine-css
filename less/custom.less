@@ -1,0 +1,45 @@
+/* ------
+   custom
+   ------ */
+
+@font-face {
+	font-family: AvineFontText;
+	font-weight: normal;
+	src: url(font/Ubuntu/Ubuntu-Light.ttf);
+}
+@font-face {
+	font-family: AvineFontText;
+	font-weight: bold;
+	src: url(font/Ubuntu/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+	font-family: AvineFontTitle;
+	src: url(font/Nova_Square/NovaSquare.ttf);
+}
+
+@font-face {
+	font-family: AvineFontCode;
+	src: url(font/Roboto_Mono/RobotoMono-Light.ttf);
+}
+
+@font-family: AvineFontText, Tahoma, Geneva, sans-serif;
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: AvineFontTitle, Tahoma, Geneva, sans-serif;
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.color(
+	@name: primary;
+	@background: hsl(@color-hue-primary, @color-saturation, @color-lightness);
+	@x: 1
+);
+.color(
+	@name: secondary;
+	@background: hsl(@color-hue-secondary, @color-saturation, @color-lightness);
+	@x: 1
+);

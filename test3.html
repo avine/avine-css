@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Test</title>
+
+	<link rel="shortcut icon" href="favicon.ico" />
+
+	<link rel="stylesheet" href="css/avine-css.css" />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+	<style>
+		body {
+			background-color: #eee;
+		}
+
+		.grid-wrap {
+			position: relative;
+			width: 600px;
+			max-width: 100%;
+			margin: 0 auto;
+			/*border: 1px dotted red;*/
+		}
+
+		.grid {
+			
+			overflow: auto;
+			text-align: justify;
+			box-sizing: border-box;
+			padding: 1%;
+
+
+			display: flex;
+			flex-flow: column wrap; /*flex-direction: row; flex-wrap: wrap;*/
+			
+			/*justify-content: space-around;
+			align-items: center; /*stretch*/
+			/*align-content: center; /*stretch*/
+
+		}
+		.grid > * {
+			box-sizing: border-box;
+			border-radius: 3px;
+			border: 0px solid #ddd;
+			background-color: #fff;
+			padding: 1em;
+			transition: width .5s ease, height .5s ease;
+
+			margin: 1%;
+
+			flex-grow: 0;
+
+		}
+
+		.grid-cell-last {
+			background-color: #f5f5f5;
+		}
+		@media (max-width: 639px) {
+			.grid-cell-last {
+				order: 999;
+			}
+		}
+
+		#info { background-color: red; padding: 0 10px; }
+
+		.grid-cell-20pc { flex-basis: 18%; }
+		.grid-cell-25pc { flex-basis: 23%; }
+		.grid-cell-33pc { flex-basis: 31.333333333%; }
+		.grid-cell-50pc { flex-basis: 48%; }
+		.grid-cell-66pc { flex-basis: 64.666666666%; }
+		.grid-cell-75pc { flex-basis: 73%; }
+		.grid-cell-80pc { flex-basis: 78%; }
+		.grid-cell-100pc { flex-basis: 98%; }
+
+		@media (min-width: 640px) {
+			#info { background-color: green; }
+
+			.grid-cell-20pc-s { flex-basis: 18%; }
+			.grid-cell-25pc-s { flex-basis: 23%; }
+			.grid-cell-33pc-s { flex-basis: 31.333333333%; }
+			.grid-cell-50pc-s { flex-basis: 48%; }
+			.grid-cell-66pc-s { flex-basis: 64.666666666%; }
+			.grid-cell-75pc-s { flex-basis: 73%; }
+			.grid-cell-80pc-s { flex-basis: 78%; }
+			.grid-cell-100pc-s { flex-basis: 98%; }
+		}
+		@media (min-width: 960px) {
+			#info { background-color: blue; }
+
+			.grid-cell-20pc-l { flex-basis: 18%; }
+			.grid-cell-25pc-l { flex-basis: 23%; }
+			.grid-cell-33pc-l { flex-basis: 31.333333333%; }
+			.grid-cell-50pc-l { flex-basis: 48%; }
+			.grid-cell-66pc-l { flex-basis: 64.666666666%; }
+			.grid-cell-75pc-l { flex-basis: 73%; }
+			.grid-cell-80pc-l { flex-basis: 78%; }
+			.grid-cell-100pc-l { flex-basis: 98%; }
+		}
+	
+		.none { display:none; }
+	</style>
+</head>
+<body class="avn-env">
+
+	<span id="info">&nbsp;</span>
+
+	<div class="grid none" style="_height:200px;">
+		<div class="">
+			1
+		</div>
+		<div style="flex-grow:0;">
+			2
+		</div>
+		<div class="">
+			3
+		</div>
+		<div class="">
+			4
+		</div>
+		<div class="">
+			5
+		</div>
+	</div>
+
+	<div class="grid none" style="_height:200px;">
+		<div class="">
+			1 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		</div>
+		<div class="">
+			2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		</div>
+		<div class="">
+			3 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		</div>
+	</div>
+
+	<div class="grid-wrap">
+	<div class="grid" style="height:600px;">
+		<div class="grid-cell-100pc grid-cell-25pc-s  grid-cell-33pc-l">
+			1
+		</div>
+		<div class="grid-cell-100pc grid-cell-25pc-s  grid-cell-33pc-l">
+			2
+		</div>
+		<div class="grid-cell-100pc grid-cell-25pc-s  grid-cell-33pc-l">
+			3
+		</div>
+		<div class="grid-cell-50pc grid-cell-25pc-s  grid-cell-50pc-l">
+			4
+		</div>
+	</div></div>
+
+</body>
+</html>

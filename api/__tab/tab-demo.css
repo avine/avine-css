@@ -1,0 +1,21 @@
+
+.demo-background .avn-tab-item > :first-child { background-color: #ddd; }
+.demo-background .avn-tab-item > :last-child { background-color: #ccc; }
+
+#demo-action {
+	position: fixed;
+	z-index: 9999;
+	right: 5px;
+	top: 5px;
+	padding: 5px 10px;
+	box-shadow: -1px 1px 2px rgba(0,0,0,.1);
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+#demo-action .demo-action-hidden {
+	display: none;
+}
+#demo-action .demo-action-on {
+	font-weight: bold;
+}

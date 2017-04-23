@@ -1,0 +1,188 @@
+/* --------
+   carousel
+   -------- */
+
+.avn-carousel-wrap {
+	position: relative;
+	overflow: hidden;
+	-webkit-transition: opacity 200ms ease; -moz-transition: opacity 200ms ease; -ms-transition: opacity 200ms ease; -o-transition: opacity 200ms ease;
+	transition: opacity 200ms ease;
+}
+.avn-carousel {
+	position: relative;
+}
+.avn-carousel:after {
+	content: "\0020";
+	clear: both;
+	display: block;
+	visibility: hidden;
+	height: 0;
+	font-size: 0;
+	zoom: 1; /* Hack for IE7 **/
+}
+.avn-carousel > * {
+	display: none;
+	width: 100%;
+	float: left;
+	position: relative;
+	left: 0%;
+	z-index: 1;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box;
+	box-sizing: border-box; /* Only IE8+ */
+}
+.avn-carousel > :first-child {
+	display: block;
+}
+
+/* carousel pagination */
+
+.avn-carousel-jsPageWrap > * {
+	position: relative;
+	z-index: 3;
+	margin: 0 2px;
+	padding: 0 4px;
+}
+/*.avn-carousel-jsPage {}
+.avn-carousel-jsPageCurrent {
+	text-decoration: none;
+}*/
+
+.avn-carousel-jsPage, .avn-carousel-jsNav {
+	/*text-shadow: -1px -1px 0 #aaa;*/
+	color: #444 !important;
+	text-shadow: -1px -1px 0 rgba(255,255,255,.5);
+}
+.avn-carousel-jsPage:hover, .avn-carousel-jsNav:hover {
+	/*text-shadow: -1px -1px 0 #222;*/
+	color: #888 !important;
+}
+.avn-carousel-jsPageCurrent {
+	/*text-shadow: -1px -1px 0 #fff;*/
+	color: #ccc !important;
+}
+
+/* carousel nav */
+
+.avn-carousel-jsNav {
+	position: relative;
+	z-index: 2;
+	text-decoration: none;
+}
+.avn-carousel-jsNavPrev {}
+.avn-carousel-jsNavNext {}
+
+/* carousel page default */
+
+.avn-carousel-jsPageDefault.avn-carousel-jsPageWrap {
+	width: 100%;
+	position: absolute;
+	bottom: 5px;
+	text-align: center;
+}
+.avn-carousel-jsPageDefault .avn-carousel-jsPage,
+.avn-carousel-jsPageDefault .avn-carousel-jsNav {
+	/*text-shadow: 0 -1px 0 rgba(255,255,255,.5);*/
+	text-decoration: none !important;
+	font-weight: bold;
+	border-radius: 99px;
+}
+.avn-carousel-jsPageDefault .avn-carousel-jsPageCurrent {
+
+	/*background-color: rgba(255,255,255,.5);*/
+}
+
+/* carousel nav default */
+
+.avn-carousel-jsNavDefault.avn-carousel-jsNav {
+	/*text-shadow: 0 0 5px #fff;*/
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 60px;
+	opacity: .45;
+	-webkit-transition: opacity .5s ease; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease;
+	transition: opacity .5s ease;
+}
+.avn-carousel-jsNavDefault.avn-carousel-jsNavPrev { left: 0; text-align: left; }
+.avn-carousel-jsNavDefault.avn-carousel-jsNavNext { right: 0; text-align: right; }
+
+.avn-carousel-jsNavDefault.avn-carousel-jsNav:hover {
+	opacity: .9;
+}
+/*.avn-carousel-jsNavDefault.avn-carousel-jsNavPrev:hover {
+	background-image: -webkit-linear-gradient(left, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: -moz-linear-gradient(left, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: -ms-linear-gradient(left, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: -o-linear-gradient(left, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: linear-gradient(left, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+}
+.avn-carousel-jsNavDefault.avn-carousel-jsNavNext:hover {
+	background-image: -webkit-linear-gradient(right, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: -moz-linear-gradient(right, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: -ms-linear-gradient(right, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: -o-linear-gradient(right, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+	background-image: linear-gradient(right, rgba(136,136,136,.33) 50%, rgba(136,136,136,0) 100%);
+}*/
+.avn-carousel-jsNavDefault.avn-carousel-jsNav > * {
+	display: inline-block;
+	position: relative;
+	top: 50%;
+	margin: -15px 10px 0 10px;
+	width: 30px;
+	height: 30px;
+	font-size: 30px;
+}
+
+/* carousel slogan */
+
+.avn-carousel-slogan {
+	position: absolute;
+	left: 40px;
+	bottom: 20px;
+	opacity: 1;
+	-webkit-transition: bottom .25s ease, opacity .5s ease;
+	-moz-transition: bottom .25s ease, opacity .5s ease;
+	-ms-transition: bottom .25s ease, opacity .5s ease;
+	-o-transition: bottom .25s ease, opacity .5s ease;
+	transition: bottom .25s ease, opacity .5s ease;
+	line-height: 1.3em;
+	font-size: 2.5em;
+	font-weight: 500;
+}
+.avn-carousel-jsSloganHide {
+	bottom: -40px !important;
+	opacity: 0;
+	-webkit-transition-duration: 0s; -moz-transition-duration: 0s; -ms-transition-duration: 0s; -o-transition-duration: 0s;
+	transition-duration: 0s;
+}
+.avn-carousel-slogan > * {
+	clear: left;
+	float: left;
+	padding: 0 .33em;
+	background-color: rgba(0,0,0,.66);
+	color: #fff;
+	text-shadow: 1px 1px 1px #111;
+}
+.avn-carousel-slogan > :first-child {
+	border-radius: 4px 4px 0 0;
+}
+.avn-carousel-slogan > :last-child {
+	border-radius: 0 0 4px 4px;
+}
+
+@media (max-width: (@width-medium - 1)) {
+	.avn-carousel-jsNav {
+		width: 40px;
+	}
+	.avn-carousel-jsNav > * {
+		margin: -10px 5px 0 5px;
+		width: 20px;
+		height: 20px;
+		font-size: 20px;
+	}
+	.avn-carousel-slogan {
+		left: 25px;
+		bottom: 12.5px;
+		font-size: 1.75em;
+	}
+}

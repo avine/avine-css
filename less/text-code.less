@@ -1,0 +1,56 @@
+
+/* text code */
+
+pre, code, samp, kbd {
+	font-family: AvineFontCode, Consolas, Monaco, monospace;
+
+	// Because AvineFontCode is quite bigger..
+	font-size: .85em;
+	line-height: 1.5em;
+}
+
+pre, code {
+	tab-size: 4;
+}
+
+pre {
+	&:extend(.avn-text-margin);
+	white-space: pre-wrap;
+}
+
+code {
+	padding: 0px .25em;
+	border-radius: @border-radius-small;
+	border: @border-width solid rgba(0,0,0,@alpha-medium);
+	background-color: rgba(0,0,0,@alpha-lowest); // design for @background-color = #fff
+	line-height: 1em;
+	font-size: @font-size-smaller;
+}
+
+pre code {
+	display: block;
+	padding: .25em .5em; // @padding-v @padding-h;
+	font-size: 1em;
+	line-height: inherit;
+
+	&.avn-code-unstyled {
+		display: inline;
+		padding: 0;
+		border-radius: 0;
+		border: none;
+		background-color: transparent;
+	}
+}
+
+.color-addons() when(@x = -1) {
+	code {
+		border-color: rgba(0,0,0,@alpha-medium);
+		background-color: rgba(255,255,255,@alpha-lowest);
+	}
+}
+.color-addons() when(@x = +1) {
+	code {
+		border-color: rgba(255,255,255,@alpha-medium);
+		background-color: rgba(0,0,0,@alpha-lowest);
+	}
+}

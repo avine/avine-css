@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Flex border - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../prism/prism.css" />
+	<script src="../../prism/prism.js"></script>
+</head>
+<body class="avn-env avn-align-center">
+
+	<script>
+		demoClick('Area Fill', function () {
+			$('#demo-target').toggleClass('avn-area-spacing').children().toggleClass('avn-area-fill');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="avn-area-bound" id="demo-target">
+		<div class="avn-flex-border demo-color-switcher">
+			<div class="avn-flex">
+
+				<div class="avn-flex-12">12</div>
+			
+			</div><div class="avn-flex avn-flex-nowrap">
+			
+				<!-- Using .avn-flex-nowrap to prevent small cells from being wrapped -->
+				<div class="avn-flex-1 avn-color-grey-lighter">__1__</div>
+				<div class="avn-flex-11">11</div>
+			
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-2 avn-color-grey-lighter">2</div>
+				<div class="avn-flex-10">10</div>
+
+				<div class="avn-flex-3 avn-color-grey-lighter">3</div>
+				<div class="avn-flex-9">9</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-4 avn-color-grey-lighter">4</div>
+				<div class="avn-flex-8">8</div>
+
+				<div class="avn-flex-5 avn-color-grey-lighter">5</div>
+				<div class="avn-flex-7">7</div>
+
+				<div class="avn-flex-6 avn-color-grey-lighter">6</div>
+				<div class="avn-flex-6">6</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div id="demo-doc">
+<hgroup>
+	<h2>Grille de mise en page</h2>
+	<h3>Avec bord</h3>
+</hgroup>
+
+<p>Envelopper la classe <code>.avn-flex</code> avec <code>.avn-flex-border</code> pour ajouter un bord intérieur aux cellules de la grille.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-border">
+	<div class="avn-flex">
+		<div>Lorem ipsum</div>
+		<div>Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+<p>Pour ajouter un bord extérieur, combinez la grille avec le pattern "bound &gt; fill".</p>
+
+<div class="demo-code">
+
+<div class="avn-area-bound">
+	<div class="avn-area-fill avn-flex-border">
+		<div class="avn-flex">
+			<div>Lorem ipsum</div>
+			<div>Lorem ipsum</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<p>Définissez si besoin la couleur de la grille au niveau de la classe <code>.avn-area-fill</code>.</p>
+
+<div class="demo-code">
+
+<div class="avn-area-bound">
+	<!-- The color comes here at the "fill" level (and not at the "bound" level) -->
+	<div class="avn-area-fill avn-flex-border avn-color-grey-dark">
+		<div class="avn-flex">
+			<div>Lorem ipsum</div>
+			<div>Lorem ipsum</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<div class="avn-text-box avn-color-grey-dark">
+	<p class="avn-icon avn-icon-block avn-icon-before avn-icon-info">A noter que le module "Région" <code>.avn-area-*</code> permet également de définir la couleur au niveau de la classe <code>.avn-area-bound</code>.
+		Cependant, lorsque vous le combinez avec le module "Grille", vous ne pouvez définir la couleur qu'au niveau de la classe <code>.avn-area-fill</code>.</p>		
+</div>
+
+</div>
+</body>
+</html>

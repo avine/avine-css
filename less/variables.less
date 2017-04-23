@@ -1,0 +1,75 @@
+
+@width-large				: 960px; // 960, (720), 480, (360), 240, (180), 120, (90), 60, (45), 30, (15)
+@width-medium				: 720px;
+@width-small				: 480px;
+@width-min					: 240px;
+
+@font-size-large			: 16px;
+@font-size-medium			: 14px;
+@font-size-small			: 13px;
+
+@line-height				: 1.5em;
+@line-height-less			: ((@line-height - 1) / 2);
+
+// x factor for h4, h3, h2, h1
+@font-size-x				: .375;
+@line-height-x				: -.0875;
+
+@font-size-bigger			: 1.15em;
+@font-size-smaller			: .85em;
+
+@margin						: 1.5em;
+
+//@spacing					: 2.5%; // 24px for a screen width 960px
+//@spacing-large				: 3.75%; // 36px for a screen width 960px
+
+@spacing-px					: 24px;
+@spacing-large-px			: 36px;
+
+@padding-h					: 1em;
+@padding-v					: (@padding-h - @line-height-less);
+
+@box-shadow					: 1px 1px 2px rgba(0,0,0,.075);
+@box-inset-shadow			: 1px 1px 0 rgba(255,255,255,.15) inset;
+
+@border-radius-large		: 8px;
+@border-radius-medium		: 5px;
+@border-radius-small		: 3px;
+
+@border-width				: 1px;
+@border-color				: #ddd;
+
+@background-color			: #fff;
+@background-x				: -1; // if (luminance(@background-color) > 50%) then { @background-x: -1; } else { @background-x: +1; }
+
+@font-family				: Tahoma, Geneva, sans-serif;
+
+@color-hue-primary			: 312;
+@color-hue-secondary		: 100;
+@color-saturation			: 20%;
+@color-lightness			: 45%;
+
+@text-margin-top			: 1em;
+@text-margin-bottom			: (@text-margin-top / (1 + 4 * @font-size-x)); // h1 margin-bottom = p margin-top
+
+@text-shadow-color			: transparent;
+@text-color					: greyscale(hsl(0, @color-saturation, @color-lightness));
+
+@link-color					: hsl(@color-hue-primary, @color-saturation, @color-lightness);
+@link-color-hover			: darken(@link-color, 19.5% * @background-x); // Set color or use default: darken(@link-color, 19.5% * @background-x);
+
+@title1-main-color			: @text-color; // Set color or use default: @text-color;
+@title1-sub-color			: lighten(@background-color, 19.5% * @background-x); // Set color or use default: lighten(@background-color, 19.5% * @background-x);
+
+@title2-main-color			: hsl(@color-hue-secondary, @color-saturation, @color-lightness);
+@title2-sub-color			: lighten(@background-color, 19.5% * @background-x); // Set color or use default: lighten(@background-color, 19.5% * @background-x);
+
+@alpha-lowest				: .05;
+@alpha-low					: .1;
+@alpha-medium				: .15;
+@alpha-high					: .2;
+
+@transition-slow			: 1s;
+@transition-medium			: .66s;
+@transition-fast			: .25s;
+@transition-faster			: .1s;

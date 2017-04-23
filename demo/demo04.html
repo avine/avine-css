@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Demo</title>
+
+	<link rel="stylesheet" href="../css/avine-css.css" />
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+	<script src="../js/avine-js.js"></script>
+	<script src="../js/avine-css.js"></script>
+
+	<style>
+		@media (min-width: 720px) {
+			.avn-grid-shift {
+				border-left: 1px solid #ddd;
+				padding: 10px !important;
+			}
+		}
+	</style>
+</head>
+<body class="avn-env">
+
+	<div class="avn-area-fill" style="border-bottom-width:1px;">
+		<div class="avn-area-bound">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+		</div>
+	</div>
+
+	<div class="avn-area-bound avn-area-pad">
+		Logo
+	</div>
+
+	<div class="avn-area-bound avn-area-spacing">
+		<div class="avn-area-fill avn-area-nopad">
+
+			<div style="border-bottom:1px solid #ddd;">
+
+				<div class="avn-navbar-toggle">
+					<div class="avn-navbar-toggle-source"><i class="fa fa-align-justify"></i></div>
+					<div class="avn-navbar-toggle-target">
+
+						<div class="avn-tab-wrap">
+							<div class="avn-tab avn-tab-dir-bottom">
+								<div class="avn-grid avn-grid-medium">
+									<div>
+
+										<div class="avn-tab-item">
+											<span>Item 1</span><div>Sub item 1</div>
+										</div>
+
+									</div><div>
+
+										<div class="avn-tab-item">
+											<span>Item 2</span><div>Sub item 2</div>
+										</div>
+
+									</div><div>
+
+										<div class="avn-tab-item">
+											<span>Item 3</span><div>Sub item 3</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<script>
+					$.dom.ready(function () {
+						$('.avn-navbar-toggle').navbarToggle().on('avnNavbarToggle', function(e) {
+							var isOpen = e.detail;
+							$('#demo-status strong').html(isOpen ? 'opened': 'closed');
+						});
+					});
+				</script>
+
+			</div>
+
+			<div class="avn-carousel-wrap" style="border-bottom:1px solid #ddd;">
+				<div class="avn-carousel">
+
+					<div>(0) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+					<div>(1) Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</div>
+					<div>(2) Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
+					<div>(3) At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</div>
+					<div>(4) Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</div>
+
+				</div>
+			</div>
+			<script>
+				$.dom.ready(function () {
+					$('.avn-carousel').carousel();
+				});
+			</script>
+
+			<div class="avn-grid avn-grid-medium">
+
+				<div class="avn-area-pad">
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+				</div><div class="avn-area-pad avn-grid-shift avn-grid-w-240px">
+
+					<p class="avn-text-box">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<p class="avn-text-box">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+				</div>
+			</div><div class="avn-area-fill avn-area-pad avn-area-over avn-area-over-bottom">
+
+				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+			</div><div class="avn-area-fill avn-area-pad">
+
+				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+
+			</div>
+
+
+		</div>
+	</div>
+
+</body>
+</html>

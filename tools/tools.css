@@ -1,0 +1,216 @@
+
+/* -------------------- back button -------------------- */
+
+.demo-back {
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	padding: 8px;
+	box-shadow: 0 0 4px rgba(0,0,0,.5);
+	border-radius: 100%;
+	border: 1px solid;
+	text-decoration: none;
+	opacity: .95;
+	z-index: 9999;
+	font-size: 24px;
+}
+
+/* -------------------- color switcher -------------------- */
+
+.demo-color-switcher-source {
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+	padding: 3px 9px;
+	box-shadow: 0 0 4px rgba(0,0,0,.5);
+	border-radius: 5px;
+	border: 1px solid;
+	text-decoration: none;
+	opacity: .95;
+	z-index: 99;
+}
+
+/* -------------------- documentation -------------------- */
+
+#demo-doc {
+	position: fixed;
+	z-index: 999;
+	opacity: .9;
+	max-width: 960px !important;
+	width: 100%;
+	height: 80%;
+	bottom: -80%;
+	box-sizing: border-box;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	text-align: left;
+	transition: bottom .5s ease, box-shadow .5s ease;
+}
+@media (min-width: 960px) {
+	#demo-doc {
+		border-top-right-radius: 5px;
+		border-right-width: 1px;
+	}
+	#demo-doc > div {
+		border-top-right-radius: 4px;
+	}
+}
+body.demo-doc-open {
+	overflow: hidden;
+}
+body.demo-doc-open #demo-doc {
+	bottom: 0 !important;
+	box-shadow: 2px -2px 2px rgba(0,0,0,.15); /* :-) */
+}
+
+#demo-doc-blur {
+	position: fixed;
+	z-index: 998;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	left: -100%;
+	opacity: 0;
+	background-color: rgba(255,255,255,.7);
+	transition: opacity .5s ease, left 0s ease .5s;
+}
+body.demo-doc-open #demo-doc-blur {
+	left: 0;
+	opacity: 1;
+	transition: opacity .5s ease;
+}
+
+#demo-doc > a { /* This is the doc trigger */
+	position: absolute;
+	left: 0;
+	top: -33px;
+	width: 48px;
+	height: 32px;
+	box-shadow: 2px -2px 2px rgba(0,0,0,.15); /* :-) */
+	border-radius: 0 5px 0 0;
+	border: inherit;
+	border-width: 1px 1px 0 0;
+	background-color: inherit;
+	line-height: 32px;
+	font-size: 24px;
+	text-align: center;
+}
+#demo-doc > div { /* This is the doc content */
+	height: 100%;
+	overflow: auto;
+	box-sizing: border-box;
+}
+
+#demo-doc-logo {
+	float: right;
+	width: 32px;
+	height: 32px;
+	background-image: url(../images/logo/logo-32.png);
+}
+#demo-doc-logo + *, #demo-doc-logo + hgroup > * { /* This is the doc title */
+	margin-top: 0;
+}
+
+/* code (in doc) */
+
+.demo-code {
+	opacity: 0;
+}
+.demo-code-enabled {
+	opacity: 1;
+}
+.demo-code .language-markup {
+	font-family: AvineFontCode, Consolas, Monaco, monospace !important;
+}
+.demo-code pre code {
+	border: none !important;
+	background-color: transparent !important;
+}
+
+/* -------------------- iframe -------------------- */
+
+.demo-iframe {
+	position: fixed;
+	z-index: 99999;
+	width: 100%;
+	left: -100%;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	background-color: rgba(0,0,0, .8);
+	transition: left 0s linear .33s, opacity .33s ease;
+}
+
+.demo-iframe .demo-iframe-title,
+.demo-iframe .demo-iframe-bar {
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.demo-iframe .demo-iframe-title {
+	top: 0;
+	border-bottom: 1px solid;
+}
+.demo-iframe .demo-iframe-bar {
+	bottom: -40px;
+	border-top: 1px solid;
+	transition: bottom ease .33s;
+}
+
+.demo-iframe .demo-iframe-bar a {
+	display: inline-block;
+	width: 5em;
+	text-decoration: none !important;
+}
+
+.demo-iframe iframe {
+	display: none;
+	z-index: 1;
+	margin: 0 auto;
+	max-width: 100% !important;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	border-color: transparent;
+	border-width: 40px 0;
+	transition: width ease .5s;
+}
+
+body.demo-iframe-active {
+	overflow: hidden;
+}
+body.demo-iframe-active	.demo-iframe {
+	left: 0;
+	opacity: 1;
+	transition: opacity .33s ease;
+}
+body.demo-iframe-active	.demo-iframe iframe {
+	display: block;
+	box-shadow: 0 0 50px rgba(0,0,0,.9);
+}
+body.demo-iframe-active	.demo-iframe-bar {
+	bottom: 0;
+}
+
+/* -------------------- quik click -------------------- */
+
+.demo-click-links {
+	margin: 1em 0;
+}
+.demo-click-links a {
+	display: inline-block;
+	margin: 2px;
+	padding: .25em .5em;
+	border-radius: 3px;
+	background-color: #eee;
+	text-decoration: none;
+}
+.demo-click-links a.demo-click-active {
+	background-color: #888;
+	color: #eee;
+}

@@ -1,0 +1,125 @@
+
+/* flex border and spacing */
+
+// border
+
+.avn-flex-border {
+	overflow: hidden;
+	padding: 0 !important;
+	border-color: @border-color;
+
+	> .avn-flex {
+		margin: 0 -@border-width -@border-width 0;
+		border-color: inherit;
+		> * {
+			margin: -@border-width 0 0 -@border-width;
+			padding: @padding-v @padding-h;
+			border-width: @border-width;
+			border-style: solid;
+			border-color: inherit;
+			background-color: @background-color;
+			box-shadow: @box-inset-shadow;
+		}
+		+ .avn-flex {
+			margin-top: @border-width;
+		}
+	}
+}
+
+.color-addons() {
+	&.avn-flex-border > .avn-flex > * {
+		background-color: @background;
+	}
+}
+
+// border and .avn-area-fill
+
+.avn-area-fill.avn-flex-border {
+	> .avn-flex > * {
+		.fill-gradient-add();
+	}
+	&.avn-area-nograd > .avn-flex > * {
+		.fill-gradient-remove();
+	}
+}
+
+// spacing
+
+.avn-flex-spacing > .avn-flex {
+	margin: @padding-h @padding-h 0 @padding-h;
+	> * { margin: 0 0 @padding-h 0; }
+}
+.avn-flex-spacing-large > .avn-flex {
+	margin: @margin @margin 0 @margin;
+	> * { margin: 0 0 @margin 0; }
+}
+
+.avn-flex-spacing,
+.avn-flex-spacing-large {
+	padding: 0 !important;
+	> .avn-flex {
+		> * {
+			flex-grow: 0;
+		}
+		+ .avn-flex {
+			margin-top: 0;
+		}
+	}
+
+	// border and spacing
+
+	&.avn-flex-border {
+		&, > .avn-flex {
+			&, &:hover { // Add :hover for avn-color-[NAME]-hover
+				background-color: transparent !important;
+			}
+		}
+		> .avn-flex > * {
+			box-shadow: @box-shadow, @box-inset-shadow;
+		}
+	}
+}
+
+// spacing with radius
+
+.avn-flex-radius {
+	&.avn-flex-spacing > .avn-flex > * {
+		border-radius: @border-radius-medium;
+	}
+	&.avn-flex-spacing-large > .avn-flex > * {
+		border-radius: @border-radius-large;
+	}
+}
+
+// spacing with nopad
+
+.avn-flex-nopad {
+	padding: 0 !important;
+	overflow: hidden;
+
+	&.avn-flex-spacing,
+	&.avn-flex-spacing-large {
+		overflow: visible;
+		> .avn-flex {
+			margin-right: 0;
+			margin-left: 0;
+		}
+		&.avn-flex-border {
+			@media (max-width: (@width-large - 1 + 2 * @border-width)) {
+				overflow: hidden; // Known issue: between @width-large and @width-large + (2 * @border-width)
+			}
+			> .avn-flex {
+				margin-right: -@border-width;
+				margin-left: -@border-width;
+			}
+		}
+	}
+}
+
+// Advanced
+.avn-area-bound > .avn-area-fill, // with .avn-area-*
+.avn-flex-border > .avn-flex > .avn-flex-spacing { // with nested .avn-flex-spacing
+	&.avn-flex-nopad {
+		overflow: hidden;
+	}
+}

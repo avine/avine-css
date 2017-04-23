@@ -1,0 +1,32 @@
+/* ---
+   app
+   --- */
+
+html.avn-app,
+html.avn-app body { margin: 0; height: 100%; overflow: hidden; }
+
+.avn-app .avn-app-top,
+.avn-app .avn-app-bottom,
+.avn-app .avn-app-main {
+	position: absolute;
+	width: 100%;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box;
+	box-sizing: border-box; /* Only IE8+ */
+}
+.avn-app-top { height: 30px; line-height: 30px; text-align: center; }
+.avn-app-bottom { height: 30px; line-height: 30px; text-align: center; }
+.avn-app-main { overflow: auto; }
+
+.avn-app .avn-app-top { z-index: 3; left: 0; top: 0; }
+.avn-app .avn-app-bottom { z-index: 2; left: 0; bottom: 0; }
+.avn-app .avn-app-main { z-index: 1; top: 30px; bottom: 30px; }
+
+html.avn-app.avn-app-hide-top .avn-app-top,
+html.avn-app.avn-app-hide-bottom .avn-app-bottom { display: none; }
+
+html.avn-app.avn-app-hide-top .avn-app-main { top: 0; }
+html.avn-app.avn-app-hide-bottom .avn-app-main { bottom: 0; }
+
+/* app and area-fill */
+
+html.avn-app.avn-app-hide-top .avn-area-fill.avn-app-main { border-top: none; }

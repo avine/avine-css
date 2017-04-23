@@ -1,0 +1,95 @@
+/* ----
+   flex
+   ---- */
+
+.avn-flex {
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+
+	> * {
+		position: relative;
+		box-sizing: border-box;
+
+		flex-grow: 1;
+		flex-basis: 100%;
+
+		.avn-color-transition;
+	}
+}
+
+.avn-flex-nowrap {
+	flex-wrap: nowrap;
+}
+
+// flex-basis
+
+//.avn-flex-spacing > .avn-flex,
+.avn-flex {
+	.avn-flex-bundle(@padding-h);
+}
+.avn-flex-spacing-large > .avn-flex {
+	.avn-flex-bundle(@margin);
+}
+
+.avn-flex-bundle(@spacing) {
+	.avn-flex-sizes(@spacing);
+
+	@media (min-width: @width-medium) {
+		.avn-flex-sizes(@spacing, -medium);
+	}
+	@media (min-width: @width-large) {
+		.avn-flex-sizes(@spacing, -large);
+	}
+}
+.avn-flex-sizes(@spacing: 0, @suffix: ~'') {
+	.avn-flex-basis( 1, @spacing, @suffix);
+	.avn-flex-basis( 2, @spacing, @suffix);
+	.avn-flex-basis( 3, @spacing, @suffix);
+	.avn-flex-basis( 4, @spacing, @suffix);
+	.avn-flex-basis( 5, @spacing, @suffix);
+	.avn-flex-basis( 6, @spacing, @suffix);
+	.avn-flex-basis( 7, @spacing, @suffix);
+	.avn-flex-basis( 8, @spacing, @suffix);
+	.avn-flex-basis( 9, @spacing, @suffix);
+	.avn-flex-basis(10, @spacing, @suffix);
+	.avn-flex-basis(11, @spacing, @suffix);
+	.avn-flex-basis(12, @spacing, @suffix);
+}
+.avn-flex-basis(@n, @spacing, @suffix) {
+	> .avn-flex-@{n}@{suffix} {
+		@basis: 100% * @n / 12;
+		@factor: 1 - @n / 12;
+		flex-basis: ~'calc(@{basis} - @{spacing} * @{factor})';
+	}
+}
+
+// flex order
+
+@media (max-width: (@width-medium - 1)) {
+	.avn-flex-head-small { order: -1; }
+	.avn-flex-foot-small { order: 999; }
+
+	.avn-flex-headest-small { order: -2; }
+	.avn-flex-footest-small { order: 1000; }
+}
+@media (min-width: @width-medium) and (max-width: (@width-large - 1)) {
+	.avn-flex-head-medium { order: -1; }
+	.avn-flex-foot-medium { order: 999; }
+
+	.avn-flex-headest-medium { order: -2; }
+	.avn-flex-footest-medium { order: 1000; }
+}
+@media (min-width: @width-large) {
+	.avn-flex-head-large { order: -1; }
+	.avn-flex-foot-large { order: 999; }
+
+	.avn-flex-headest-large { order: -2; }
+	.avn-flex-footest-large { order: 1000; }
+}

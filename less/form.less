@@ -1,0 +1,219 @@
+/* ----
+   form
+   ---- */
+
+.avn-form input, .avn-form select, .avn-form textarea, .avn-form label, .avn-form-label {
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box;
+	box-sizing: border-box; /* Only IE8+ */
+	padding: .25em .5em;
+	vertical-align: top;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+.avn-form input, .avn-form select, .avn-form textarea {
+	margin: 0 0 @text-margin-top 0;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	background-color: #fafafa;
+	color: #444;
+
+	-webkit-transition: box-shadow .15s ease, border-color .15s ease, background-color .15s ease, color .15s ease;
+	-moz-transition: box-shadow .15s ease, border-color .15s ease, background-color .15s ease, color .15s ease;
+	-ms-transition: box-shadow .15s ease, border-color .15s ease, background-color .15s ease, color .15s ease;
+	-o-transition: box-shadow .15s ease, border-color .15s ease, background-color .15s ease, color .15s ease;
+	transition: box-shadow .15s ease, border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+.avn-form input, .avn-form select {
+	height: 2em;
+}
+.avn-form select[multiple] {
+	height: auto;
+}
+.avn-form input[type="radio"], .avn-form input[type="checkbox"], .avn-form input[type="file"] {
+	padding: 0;
+	box-shadow: none !important;
+	border: none !important;
+	background-color: transparent !important;
+}
+.avn-form select {
+	padding-right: .25em;
+}
+.avn-form label, .avn-form-label {
+	display: inline-block;
+	margin: 0;
+	background-color: transparent !important;
+	color: #777;
+}
+.avn-form-label {
+	font-style: italic;
+}
+
+/* hover and active */
+
+.avn-form input:focus, .avn-form select:focus, .avn-form textarea:focus {
+	box-shadow: 0 0 5px rgba(0,0,0, .1);
+	border-color: #52b42f;
+	background-color: #fff;
+	outline: none;
+}
+
+/* submit */
+
+.avn-form input[type="submit"] {
+	padding: 0 1em;
+	background-color: #009640;
+	color: #fff;
+}
+.avn-form input[type="submit"]:hover {
+	background-color: #52b42f;
+	color: #fff;
+}
+.avn-form input[type="submit"]:active {
+	background-color: #fff;
+	color: #52b42f;
+}
+
+/* readonly and disabled */
+
+[readonly] {
+	border-color: #ddd !important;
+	background-color: #f6f6f6 !important;
+}
+[disabled] {
+	background-color: #f6f6f6 !important;
+	color: #ccc !important;
+	font-style: italic;
+}
+
+/* required */
+
+.avn-form-required:after {
+	margin-left: 5px;
+	vertical-align: super;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	font-size: smaller;
+	color: red;
+	content: "\f069";
+}
+
+/* radio and checkbox labels */
+
+.avn-form input[type="radio"] + label, .avn-form input[type="checkbox"] + label,
+.avn-form input[type="radio"] + .avn-form-label, .avn-form input[type="checkbox"] + .avn-form-label {
+	width: auto;
+	margin-right: 1em;
+}
+
+/* tight */
+
+.avn-form-tight input/*, .avn-form-tight select, .avn-form-tight textarea*/, .avn-form-tight label, .avn-form-tight .avn-form-label { line-height: 1em; }
+.avn-form-tight input/*, .avn-form-tight select*/ { height: 1.5em; }
+
+/* avn-form-grid */
+
+.avn-form-grid-space { padding-right: 5px; }
+
+.avn-form-grid input, .avn-form-grid select, .avn-form-grid textarea, .avn-form-grid label, .avn-form-grid .avn-form-label {
+	width: 100%;
+}
+.avn-form-grid input[type="radio"], .avn-form-grid input[type="checkbox"], .avn-form-grid input[type="file"],
+.avn-form-grid input[type="radio"] + label, .avn-form-grid input[type="checkbox"] + label, .avn-form-grid input[type="file"] + label,
+.avn-form-grid input[type="radio"] + .avn-form-label, .avn-form-grid input[type="checkbox"] + .avn-form-label, .avn-form-grid input[type="file"] + .avn-form-label {
+	width: auto;
+}
+@media (min-width: @width-medium) {
+	.avn-form-grid.avn-form-label-right label, .avn-form-grid label.avn-form-label-right,
+	.avn-form-grid.avn-form-label-right .avn-form-label, .avn-form-grid .avn-form-label.avn-form-label-right {
+		text-align: right;
+	}
+	.avn-form-grid.avn-form-label-left label, .avn-form-grid label.avn-form-label-left,
+	.avn-form-grid.avn-form-label-left .avn-form-label, .avn-form-grid .avn-form-label.avn-form-label-left {
+		text-align: left;
+	}
+}
+
+/* fieldset */
+
+.avn-form fieldset {
+	background-color: #f2f2f2;
+	border: 1px solid #eaeaea;
+	margin: @text-margin-top 0 @text-margin-bottom 0;
+	padding: 1em;
+	border-radius: 2px;
+	box-shadow: 1px 1px 0 #ddd;
+}
+.avn-form legend {
+	margin: 0;
+	padding: .25em 1em;
+	border-radius: 99px;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	font-size: 1.3em;
+	font-variant: small-caps;
+}
+
+@media (min-width: @width-medium) {
+	.avn-form .avn-grid-medium > * {
+		/*padding-top: @text-margin-top;
+		border-bottom: 1px dashed #ccc;*/
+	}
+}
+
+
+
+
+
+/*
+.avn-form-toggle-hidden {
+	display: none;
+}
+*/
+
+
+
+/*custo
+.avn-form .avn-form-fixed input, .avn-form-fixed .avn-form select, .avn-form-fixed .avn-form textarea {
+	width: 200px;
+}
+.avn-form .avn-form-fixed label {
+	width: 150px;
+}*/
+
+
+
+/*.avn-form select {
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	outline: none;
+
+	background: url('dropdown_arrow.png') right center no-repeat;
+
+	text-indent: 0.01px;
+	text-overflow: "";
+
+
+}
+.avn-form select::-ms-expand { display: none; }
+
+.avn-form label:before {
+
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1em;
+	color: inherit;
+
+	content: "\f00d";
+
+	position:absolute;
+	top:0;
+	left:0;
+	width: 30px;
+	height:30px;
+	border: 1px solid red;
+
+}*/

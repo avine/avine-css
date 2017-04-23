@@ -1,0 +1,38 @@
+
+/* text adds */
+
+.avn-text-box {
+	&:extend(.avn-text-margin);
+	padding: @padding-v @padding-h;
+	border-radius: @border-radius-medium;
+	border: @border-width solid @border-color;
+	background-color: @background-color;
+}
+.avn-text-box > :first-child {
+	margin-top: 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+.avn-font-size-bigger { font-size: @font-size-bigger !important; }
+.avn-font-size-smaller { font-size: @font-size-smaller !important; }
+
+////////////////////////////////////////////////////////////////////////////////
+
+.avn-align-center { text-align: center !important; }
+.avn-align-left { text-align: left !important; }
+.avn-align-right { text-align: right !important; }
+.avn-align-justify { text-align: justify !important; }
+
+@media (min-width: @width-medium) {
+	.avn-align-center-medium { text-align: center !important; }
+	.avn-align-left-medium { text-align: left !important; }
+	.avn-align-right-medium { text-align: right !important; }
+	.avn-align-justify-medium { text-align: justify !important; }
+}
+@media (min-width: @width-large) {
+	.avn-align-center-large { text-align: center !important; }
+	.avn-align-left-large { text-align: left !important; }
+	.avn-align-right-large { text-align: right !important; }
+	.avn-align-justify-large { text-align: justify !important; }
+}

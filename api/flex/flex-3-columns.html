@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Flex 3 columns - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../prism/prism.css" />
+	<script src="../../prism/prism.js"></script>
+
+	<style>.demo-hightlight { color:red; }</style>
+</head>
+<body class="avn-env avn-align-center">
+
+	<script>
+		demoClick('Area Fill', function () {
+			$('#demo-target').toggleClass('avn-area-spacing').children().toggleClass('avn-area-fill');
+		}).demoClick('Flex no-pad', function () {
+			$('#demo-target').children().toggleClass('avn-flex-nopad');
+		});
+
+		demoClick('Flex border', function () {
+			$('#demo-target').children().toggleClass('avn-flex-border');
+		}).demoClick('Flex spacing', function () {
+			$('#demo-target').children().toggleClass('avn-flex-spacing');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+    <section class="avn-area-bound avn-align-justify" id="demo-target">
+		<article class="avn-area-border demo-color-switcher">
+
+			<div class="avn-flex">
+				<aside class="avn-flex-3-medium avn-color-grey-light avn-flex-foot-small">
+
+					<span class="demo-hightlight">(sidebar 1)</span>
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+				</aside><div class="avn-flex-9-medium avn-flex-5-large">
+
+					<span class="demo-hightlight">(content)</span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+				</div><aside class="avn-flex-4-large avn-color-grey-dark avn-flex-foot-small">
+
+					<span class="demo-hightlight">(sidebar 2)</span>
+					Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+
+				</aside>
+			</div>
+
+		</article>
+    </section>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div id="demo-doc">
+<hgroup>
+	<h2>Grille de mise en page</h2>
+	<h3>3 colonnes</h3>
+</hgroup>
+
+<p>Cette démo montre comme créer une grille de 3 colonnes.
+	Notez que l'ordre des cellules est modifable en fonction de la largeur disponible à l'écran.</p>
+
+<p>Pour cela, utilisez les classes suivantes : <code>.avn-flex-[ <b>headest</b>|<b>head</b>|<b>foot</b>|<b>footest</b> ][ <b>-medium</b>|<b>-large</b> ]</code>.</p>
+
+<p>L'exemple suivant affiche la première cellule en dernier et la deuxième cellule en avant dernier, sur les écrans de taille moyenne&nbsp;:</p>
+
+<div class="demo-code">
+
+<div class="avn-flex">
+	<div class="avn-flex-footest-medium">Lorem ipsum</div>
+	<div class="avn-flex-foot-medium">Lorem ipsum</div>
+	<div>Lorem ipsum</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

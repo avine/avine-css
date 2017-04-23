@@ -1,0 +1,98 @@
+/* -----
+   color
+   ----- */
+
+@color-grey-lightest:	#f7f7f7;
+@color-grey-lighter:	#e7e7e7;
+@color-grey-light:		#d7d7d7;
+@color-grey-dark:		#888;
+@color-grey-darker:		#555;
+@color-grey-darkest:	#222;
+
+@color-saturation-x: 6.5%;
+@color-lightness-x: 6.5%;
+
+.avn-color-transition {
+	transition:
+		border @transition-fast ease,
+		background-color @transition-fast ease,
+		color @transition-fast ease;
+}
+
+.color-addons() {} // Add rules to customize colors
+
+.color(
+	@name;
+	@background;
+	@x				: 1;
+
+	@border			: darken(desaturate(@background, @color-saturation-x), @color-lightness-x);
+	@text-shadow	: darken(desaturate(@background, @color-saturation-x), @color-lightness-x * @x);
+
+	@text			: lighten(@background, 40% * @x);
+	@link			: lighten(@text, 9.75% * @x);
+	@link-hover		: darken(@link, 19.5% * @x);
+
+	@title1-main	: lighten(@background, 46.5% * @x);
+	@title1-sub		: lighten(@background, 19.5% * @x);
+
+	@title2-main	: lighten(@background, 33% * @x);
+	@title2-sub		: lighten(@background, 19.5% * @x)
+) {
+	.avn-color-@{name},
+	.avn-color-@{name}-hover:hover,
+	.avn-color-@{name}-hover.avn-hover-jsOver {
+		border-color: @border !important;
+		background-color: @background !important;
+		text-shadow: 0 -(1px * @x) 0 @text-shadow;
+		color: @text !important;
+
+		.title1-color(@title1-main; @title1-sub);
+		.title2-color(@title2-main; @title2-sub; @x);
+		.link-color(@link; @link-hover);
+
+		.color-addons();
+	}
+}
+
+.color(
+	@name: default;
+	@background: @background-color;
+	@x: @background-x;
+	@border: @border-color;
+	@text-shadow: @text-shadow-color;
+	@text: @text-color;
+	@link: @link-color;
+	@link-hover: @link-color-hover;
+	@title1-main: @title1-main-color;
+	@title1-sub: @title1-sub-color;
+	@title2-main: @title2-main-color;
+	@title2-sub: @title2-sub-color
+);
+
+.color(@name: grey-lightest	; @background: @color-grey-lightest	; @x: -1);
+.color(@name: grey-lighter	; @background: @color-grey-lighter	; @x: -1);
+.color(@name: grey-light	; @background: @color-grey-light	; @x: -1);
+.color(@name: grey-dark		; @background: @color-grey-dark				);
+.color(@name: grey-darker	; @background: @color-grey-darker			);
+.color(@name: grey-darkest	; @background: @color-grey-darkest			);
+
+// area-fill reverse order
+.avn-area-fill.avn-color-grey-darkest + .avn-area-fill.avn-color-grey-darker {
+	border-top-color: darken(desaturate(@color-grey-darkest, @color-saturation-x), @color-lightness-x) !important;
+}
+.avn-area-fill.avn-color-grey-darker + .avn-area-fill.avn-color-grey-dark {
+	border-top-color: darken(desaturate(@color-grey-darker, @color-saturation-x), @color-lightness-x) !important;
+}
+.avn-area-fill.avn-color-grey-dark + .avn-area-fill.avn-color-grey-light {
+	border-top-color: darken(desaturate(@color-grey-dark, @color-saturation-x), @color-lightness-x) !important;
+}
+.avn-area-fill.avn-color-grey-light + .avn-area-fill.avn-color-grey-lighter {
+	border-top-color: darken(desaturate(@color-grey-light, @color-saturation-x), @color-lightness-x) !important;
+}
+.avn-area-fill.avn-color-grey-lighter + .avn-area-fill.avn-color-grey-lightest {
+	border-top-color: darken(desaturate(@color-grey-lighter, @color-saturation-x), @color-lightness-x) !important;
+}
+.avn-area-fill.avn-color-grey-lightest + .avn-area-fill.avn-color-default {
+	border-top-color: darken(desaturate(@color-grey-lightest, @color-saturation-x), @color-lightness-x) !important;
+}

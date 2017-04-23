@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Demo</title>
+
+	<link rel="stylesheet" href="../css/avine-css.css" />
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+	<script src="../js/avine-js.js"></script>
+	<script src="../js/avine-css.js"></script>
+
+	<style>
+		body, #theme-navbar-wrapper .avn-navbar-toggle-source {
+			background-image: url(demo6/bright_squares.png);
+		}
+
+		#theme-header-top .avn-tab-item > :last-child {
+			width: 300px;
+			box-shadow: 0 5px 5px rgba(0,0,0,.25);
+			border-radius: 0 0 6px 6px;
+		}
+		@media (max-width: 719px) {
+			#theme-header-top .avn-grid-small {
+				position: static;
+			}
+			#theme-header-top .avn-tab-item > :last-child {
+				width: 100%;
+				box-shadow: none;
+				border-radius: 0;
+			}
+		}
+		#theme-header-top .avn-tab-jsOpen > * {
+			background-color: #333 !important;
+			color: #aaa;
+		}
+		#theme-header-top .avn-tab-item > :first-child {
+			color: #009640;
+		}
+		#theme-header-top .avn-tab-item > :first-child:hover,
+		#theme-header-top .avn-tab-jsOpen > :first-child {
+			color: #52b42f;
+		}
+
+		#theme-header {
+			margin-bottom: 1.5em;
+		}
+		#theme-header .avn-grid-small > :first-child img {
+			width: 180px;
+		}
+
+		#theme-navbar-wrapper {
+
+		}
+		#theme-navbar-wrapper .avn-navbar-toggle-source .avn-grid-small > :first-child img {
+			height: 36px;
+		}
+		#theme-navbar-menu {
+			margin:0;
+			border-right-width: 1px;
+		}
+
+		#theme-wrapper,
+		#theme-navbar-menu {
+			box-shadow: 0 5px 5px rgba(0,0,0,.25);
+		}
+		#theme-wrapper {
+			margin-top: 0;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			border-top: 3px solid #52b42f;
+		}
+
+		#theme-carousel {
+
+		}
+		#theme-main {
+
+		}
+		#theme-sidebar {
+
+		}
+		#theme-footer {
+
+		}
+		#theme-footer-bottom {
+
+		}
+	</style>
+
+</head>
+<body class="avn-env avn-color-grey-lightest">
+
+	<div class="avn-area-fill avn-area-border avn-color-grey-darkest">
+		<div class="avn-area-bound avn-area-nopad" id="theme-header-top">
+
+			<div class="avn-tab-wrap-all avn-tab-wrap-right">
+				<div class="avn-tab avn-tab-small avn-tab-fixed avn-tab-dir-bottom avn-tab-jsMouseOut">
+					<div class="avn-grid avn-grid-small">
+						<div>
+
+							<div class="avn-tab-item avn-tab-dir-left">
+								<span>Item 1</span><div>Sub item 1</div>
+							</div>
+
+						</div><div>
+
+							<div class="avn-tab-item avn-tab-dir-left">
+								<span>Item 2</span><div>Sub item 2</div>
+							</div>
+
+						</div><div>
+
+							<div class="avn-tab-item avn-tab-dir-left">
+								<span>Item 3</span><div>Sub item 3</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				$.dom.ready(function () {
+					$('#theme-header-top .avn-tab').tab();
+				});
+			</script>
+
+		</div>
+	</div>
+
+	<div class="avn-area-bound avn-area-pad avn-grid-medium-h-only" id="theme-header">
+		<div class="avn-grid avn-grid-small avn-grid-layout-auto avn-grid-align-middle">
+			<div>Logo</div>
+			<div class="avn-align-center">Slogan1 Slogan2 Slogan3 Slogan4</div>
+		</div>
+	</div>
+
+	<div class="avn-area-bound" id="theme-navbar-wrapper">
+
+		<div class="avn-navbar-toggle">
+			<div class="avn-navbar-toggle-source avn-tab-height avn-color-grey-lightest">
+
+				<div class="avn-grid avn-grid-small avn-grid-layout-auto">
+					<div>Logo</div>
+					<div class="avn-align-center">Slogan1 Slogan2 Slogan3 Slogan4</div>
+					<div class="avn-align-right" id="theme-navbar-jsTrigger"><i class="fa fa-align-justify"></i></div>
+				</div>
+
+			</div><div class="avn-navbar-toggle-target">
+
+				<div class="avn-tab-wrap">
+					<div class="avn-tab avn-tab-dir-bottom avn-tab-jsMouseOver avn-tab-jsMouseOut avn-pad avn-pad-layout avn-color-grey-lightest" id="theme-navbar-menu">
+						<div class="avn-grid avn-grid-medium">
+							<div>
+
+								<div class="avn-tab-item">
+									<span>Item 1</span><div>Sub item 1</div>
+								</div>
+
+							</div><div>
+
+								<div class="avn-tab-item">
+									<span>Item 2</span><div>Sub item 2</div>
+								</div>
+
+							</div><div>
+
+								<div class="avn-tab-item">
+									<span>Item 3</span><div>Sub item 3</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<script>
+			$.dom.ready(function () {
+				$('#theme-navbar-wrapper .avn-navbar-toggle').navbarToggle({ trigger: '#theme-navbar-jsTrigger' });
+				$('#theme-navbar-menu').tab();
+			});
+		</script>
+
+	</div>
+
+	<div class="avn-area-bound avn-area-spacing" id="theme-wrapper">
+
+		<div class="avn-area-fill avn-area-nopad avn-color-grey-lighter">
+
+			<div class="avn-carousel-wrap">
+				<div class="avn-carousel" id="theme-carousel">
+
+					<div class="avn-area-pad">(0) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+					<div class="avn-area-pad">(1) Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</div>
+					<div class="avn-area-pad">(2) Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
+					<div class="avn-area-pad">(3) At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</div>
+					<div class="avn-area-pad">(4) Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</div>
+
+				</div>
+			</div>
+			<script>
+				$.dom.ready(function () {
+					$('#theme-carousel').carousel({ pageContent: '<i class="fa fa-circle"></i>' });
+				});
+			</script>
+
+		</div>
+
+		<div class="avn-area-fill avn-area-nopad">
+			<div class="avn-grid avn-grid-medium">
+
+				<div class="avn-area-pad avn-color-default" id="theme-main">
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+				</div>
+
+				<div class="avn-grid-brdr avn-grid-brdr-left avn-grid-w-240px avn-color-grey-lightest" id="theme-sidebar">
+
+					<div class="avn-area-pad">
+
+						<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+					</div><div class="avn-area-pad">
+
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="avn-area-fill avn-area-over avn-area-over-bottom avn-color-grey-dark" id="theme-footer">
+
+				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+		</div>
+
+		<div class="avn-area-fill avn-area-border avn-color-grey-light avn-align-center" id="theme-footer-bottom">
+
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+
+		</div>
+	</div>
+
+</body>
+</html>

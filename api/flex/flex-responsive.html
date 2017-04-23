@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Flex border - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../prism/prism.css" />
+	<script src="../../prism/prism.js"></script>
+
+	<style>
+		.avn-flex > * { transition: background-color 1.5s ease;}
+		.demo-target span { display: none; font-size: .85em; color: #000; }
+		@media (min-width: 720px) {
+			.demo-medium { background-color: rgba(0, 38, 255, .15) !important; }
+			.demo-target span.m { display: inline; }
+		}
+		@media (min-width: 960px) {
+			.demo-large { background-color: rgba(255, 0, 0, .15) !important; }
+			.demo-target span.l { display: inline; }
+		}
+
+		.demo-remove-padding { padding-left:0!important; padding-right:0!important; }
+	</style>
+</head>
+<body class="avn-env avn-align-center">
+
+	<script>
+		demoClick('Flex border', function () {
+			$('#demo-target').toggleClass('avn-flex-border');
+		}).demoClick('Flex spacing', function () {
+			$('#demo-target').toggleClass('avn-flex-spacing');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="avn-area-bound avn-area-spacing">
+		<div class="avn-area-fill avn-area-border" id="demo-target">
+			<div class="avn-flex">
+
+				<div class="demo-medium avn-flex-12 avn-flex-4-medium">A <span class="m">(medium)</span></div>
+
+				<div class="demo-medium demo-remove-padding avn-flex-1 avn-flex-4-medium">B <span class="m">(medium)</span></div>
+				<div class="demo-medium avn-flex-11 avn-flex-4-medium">C <span class="m">(medium)</span></div>
+
+				<div class="demo-large avn-flex-2 avn-flex-3-large">D <span class="l">(large)</span></div>
+				<div class="demo-large avn-flex-10 avn-flex-3-large">E <span class="l">(large)</span></div>
+
+				<div class="demo-large avn-flex-3 avn-flex-3-large">F <span class="l">(large)</span></div>
+				<div class="demo-large avn-flex-9 avn-flex-3-large">G <span class="l">(large)</span></div>
+
+			</div><div class="avn-flex">
+
+				<div class="demo-medium demo-large avn-flex-4 avn-flex-8-medium avn-flex-3-large">H <span class="m l">(medium + large)</span></div>
+				<div class="demo-medium demo-large avn-flex-8 avn-flex-4-medium avn-flex-3-large">I <span class="m l">(medium + large)</span></div>
+
+				<div class="demo-medium demo-large avn-flex-5 avn-flex-4-medium avn-flex-3-large">J <span class="m l">(medium + large)</span></div>
+				<div class="demo-medium demo-large avn-flex-7 avn-flex-8-medium avn-flex-3-large">K <span class="m l">(medium + large)</span></div>
+
+				<div class="avn-flex-6">L</div>
+				<div class="avn-flex-6">M</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div id="demo-doc">
+<hgroup>
+	<h2>Grille de mise en page</h2>
+	<h3>"Responsive"</h3>
+</hgroup>
+
+<p>Vous pouvez définir plusieurs lignes à l'intérieur d'un même conteneur <code>.avn-flex</code>.
+	Vous pouvez également adapter le nombre de cellules par lignes en fonction de la largeur disponible à l'écran.</p>
+
+<p>Pour cela, utilisez le pattern suivant : <code>.avn-flex-[ <b>1</b>-<b>12</b> ][ <b>-medium</b>|<b>-large</b> ]</code>.<br />
+	L'exemple suivant affiche les cellules :</p>
+<ul>
+	<li>sur 2 colonnes pour les écrans de largeur inférieure à <code>@width-medium</code>.</li>
+	<li>sur une ligne 3 colonnes pour la première ligne et sur 1 colonne pour la suivante, pour les écrans de largeur inférieure à <code>@width-large</code>.</li>
+	<li>sur 4 colonnes, pour les écrans de largeur supérieure à <code>@width-large</code>.</li>
+</ul>
+
+<div class="demo-code">
+
+<div class="avn-flex">
+	<div class="avn-flex-6 avn-flex-4-medium avn-flex-3-large">Lorem ipsum</div>
+	<div class="avn-flex-6 avn-flex-4-medium avn-flex-3-large">Lorem ipsum</div>
+	<div class="avn-flex-6 avn-flex-4-medium avn-flex-3-large">Lorem ipsum</div>
+	<div class="avn-flex-6 avn-flex-12-medium avn-flex-3-large">Lorem ipsum</div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

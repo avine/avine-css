@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Grid</title>
+
+	<link rel="stylesheet" href="../css/avine-css.css" />
+
+	<script src="../js/avine-js.js"></script>
+	<script src="../js/avine-css.js"></script>
+
+	<style>
+		.avn-itab {
+			margin: 15px 0;
+		}
+		.avn-itab > :first-child {
+			//line-height: 0;
+			margin: 0;
+			position: relative;
+			z-index: 2;
+			list-style: none;
+			padding: 0;
+		}
+		.avn-itab > :first-child > * {
+			line-height: 2.5em;
+			//display: inline-block;
+			margin: 0 4px;
+			padding: 0 10px;
+			border: 1px solid #ddd;
+			border-bottom: 0;
+			background-color: #eee;
+			border-radius: 6px 6px 0 0;
+			cursor: pointer;
+		}
+		.avn-itab > :last-child {
+			position: relative;
+			z-index: 1;
+			border: 1px solid #ddd;
+			padding: 10px 15px;
+			background-color: #fff;
+			border-radius: 6px;
+		}
+		.avn-itab-hide {
+			position: absolute;
+			left: -9999px;
+		}
+		.avn-itab-active {
+			background-color: #fff !important;
+			position: relative;
+			bottom: -1px;
+			//border-top-color: red !important;
+			//border-radius: 0 !important;
+		}
+	</style>
+</head>
+<body class="avn-env avn-align-justify">
+
+	<div class="avn-area-bound">
+		<div class="avn-area-pad">
+
+			<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+
+			<div class="avn-itab">
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ul>
+				<div>
+					<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+					<div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</div>
+					<div>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
+				</div>
+			</div>
+
+			<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+
+			<script>
+
+				$.dom.ready(function() {
+
+					var $tab = $('.avn-itab'),
+						$childs = $tab.children();
+						$links = $childs.reduce(0).children(),
+						$contents = $childs.reduce(1).children();
+
+					$links.each(function(index) {
+						if (0 != index) $contents.reduce(index).addClass('avn-itab-hide');
+						$(this).click(function() {
+							$links.removeClass('avn-itab-active').reduce(index).addClass('avn-itab-active');
+							$contents.addClass('avn-itab-hide').reduce(index).removeClass('avn-itab-hide');
+						});
+					});
+
+				});
+
+			</script>
+
+
+
+
+
+
+
+
+
+
+<!--
+			<div class="avn-grid-wrap avn-grid-spacing-large avn-grid-noshad avn-grid-border avn-grid-radius-full avn-color-grey-light">
+
+				<div class="avn-grid avn-grid-medium">
+					<div>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div><div class="avn-grid-nofill">
+						<h4 class="avn-grid-header">Header</h4>
+						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+</p>
+
+					</div><div class="avn-color-grey-dark">
+						Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+					</div>
+				</div>
+
+			</div>-->
+
+		</div>
+	</div>
+
+</body>
+</html>

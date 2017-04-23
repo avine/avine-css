@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Jumbo - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<style>
+		body {
+			background-color: #fff;
+		}
+		#demo {
+			max-width:560px;
+			height:650px;
+			margin:50px auto;
+			/*border:1px dotted rgba(180,0,0,1);*/
+			background-color: rgba(180,0,0,.075);
+		}
+		#demo > * {
+			/*border: 1px solid #aaa;*/
+			padding: 1em;
+		}
+	</style>
+</head>
+<body class="avn-env avn-align-center">
+
+	<a href="#" id="demo-h">horizontal (stretch)</a><br />
+	<a href="#" id="demo-v">vertical (stretch)</a><br />
+	<a href="#" id="demo-s">spacing (none)</a><br />
+	<!--<a href="#" id="demo-w">nowrap</a><br />
+	<a href="#" id="demo-c">column</a>-->
+
+	<script>
+		$.dom.ready(function () {
+
+			var $demo = $('#demo'),
+				c = ['', 'column'],
+				h = ['', 'left', 'center', 'right'], hIndex = 0,
+				v = ['', 'top', 'middle', 'bottom'], vIndex = 0,
+				s = ['', 'spacing', 'spacing-large'], sIndex = 0;
+
+			demoClick('nowrap (#demo-w)', function () { $demo.toggleClass('avn-jumbo-nowrap'); });
+			demoClick('column (#demo-c)', function () { $demo.toggleClass('avn-jumbo-column'); });
+
+			$('#demo-h').click(function (e) {
+				e.preventDefault();
+				$demo.removeClass('avn-jumbo-' + h[hIndex++ % 4]);
+				if (hIndex % 4) {
+					$demo.addClass('avn-jumbo-' + h[hIndex % 4]);
+					$(this).text(h[hIndex % 4]);
+				} else {
+					$(this).text('horizontal (stretch)');
+				}
+			});
+
+			$('#demo-v').click(function (e) {
+				e.preventDefault();
+				$demo.removeClass('avn-jumbo-' + v[vIndex++ % 4]);
+				if (vIndex % 4) {
+					$demo.addClass('avn-jumbo-' + v[vIndex % 4]);
+					$(this).text(v[vIndex % 4]);
+				} else {
+					$(this).text('vertical (stretch)');
+				}
+			});
+
+			$('#demo-s').click(function (e) {
+				e.preventDefault();
+				$demo.removeClass('avn-jumbo-' + s[sIndex++ % 3]);
+				if (sIndex % 3) {
+					$demo.addClass('avn-jumbo-' + s[sIndex % 3]);
+					$(this).text(s[sIndex % 3]);
+				} else {
+					$(this).text('spacing (none)');
+				}
+			});
+		});
+	</script>
+
+	<div id="demo" class="avn-jumbo">
+
+		<div style="background-color:#bbb;">1</div>
+		<div style="background-color:#ccc;">2 2<br />2 2</div>
+		<div style="background-color:#ddd;">3 3 3<br />3 3 3<br />3 3 3</div>
+		<div style="background-color:#ccc;">4 4<br />4 4</div>
+		<div style="background-color:#bbb;">5</div>
+
+	</div>
+
+</body>
+</html>

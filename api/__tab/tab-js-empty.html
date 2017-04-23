@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Tab Js empty</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+
+	<script src="../../js/avine-js.js"></script>
+	<script src="../../js/avine-css.js"></script>
+
+	<style>
+		.demo-background .avn-tab-item > :first-child { background-color: #ddd; }
+		.demo-background .avn-tab-item > :last-child { background-color: #ccc; }
+	</style>
+</head>
+<body class="avn-env">
+	<div class="avn-area-bound avn-area-pad">
+
+		<script>
+			$.dom.ready(function () {
+				$('.avn-tab').tab();
+			});
+		</script>
+
+		<div class="avn-tab-wrap demo-background">
+			<div class="avn-tab avn-tab-dir-bottom">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span><a href="#">Empty</a></span><div class="avn-tab-empty">[EMPTY TAB]</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

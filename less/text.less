@@ -1,0 +1,195 @@
+/* ----
+   Text
+   ---- */
+
+.avn-env {
+	background-color: @background-color;
+	text-shadow: 0 -(1px * @background-x) 0 @text-shadow-color;
+	color: @text-color !important;
+	line-height: @line-height;
+	font-family: @font-family;
+	body& {
+		margin: 0; // To enable the framweork on the entire page, use <body class="avn-env">
+	}
+	@media (min-width: @width-large) {
+		font-size: @font-size-large;
+	}
+	@media (min-width: @width-small) and (max-width: (@width-large - 1)) {
+		font-size: @font-size-medium;
+	}
+	@media (max-width: (@width-small - 1)) {
+		font-size: @font-size-small;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+.avn-text-margin {
+	margin-top: @text-margin-top;
+	margin-bottom: @text-margin-bottom;
+}
+.avn-first-child {
+	margin-top: 0 !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+h1, h2, h3, h4, h5, h6, p {
+	&:extend(.avn-text-margin);
+}
+h1/*, p*/ {
+	&:first-child { &:extend(.avn-first-child); }
+}
+
+h1 { line-height: @line-height + 4 * @line-height-x; font-size: 1em + 4 * @font-size-x; }
+h2 { line-height: @line-height + 3 * @line-height-x; font-size: 1em + 3 * @font-size-x; }
+h3 { line-height: @line-height + 2 * @line-height-x; font-size: 1em + 2 * @font-size-x; }
+h4 { line-height: @line-height + 1 * @line-height-x; font-size: 1em + 1 * @font-size-x; }
+h5, p { line-height: @line-height; font-size: 1em; }
+h6 { line-height: @line-height; font-size: @font-size-smaller; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500; // medium
+	small {
+		line-height: 1em;
+		font-size: @font-size-smaller;
+	}
+}
+h6 small {
+	font-size: 1em;
+}
+
+h2 {
+	border-bottom: @border-width dotted transparent;
+	padding-bottom: @line-height-less / 2;
+}
+hgroup * + h2 {
+	border-bottom: initial;
+	padding-bottom: auto;
+}
+
+hgroup {
+	&, > * { margin: 0; }
+	> :first-child { margin-top: @text-margin-top; }
+	> :last-child { margin-bottom: @text-margin-bottom; }
+	&:first-child > :first-child { margin-top: 0; }
+}
+
+.title1-color(@title1-main-color; @title1-sub-color);
+.title2-color(@title2-main-color; @title2-sub-color; @background-x);
+
+// Note: The .color-addons() {} for .title1-color() and .title2-color mixins are included in the .color() {} mixin
+
+////////////////////////////////////////////////////////////////////////////////
+
+a {
+	outline: none;
+	text-decoration: underline;
+	&:hover, &:active, &:focus { text-decoration: none; }
+}
+
+.link-color(@link-color; @link-color-hover);
+
+// Note: The .color-addons() {} for .link-color() mixin is included in the .color() {} mixin
+
+////////////////////////////////////////////////////////////////////////////////
+
+ol, ul {
+	&:extend(.avn-text-margin);
+	padding-left: 2em;
+}
+
+ul.avn-list-unstyled {
+	padding-left: 1em;
+	list-style: none;
+}
+
+ul.avn-list-nav {
+	padding-left: 0;
+	list-style: none;
+	> li {
+		border-bottom: @border-width dotted rgba(0,0,0,@alpha-medium);
+		padding: .25em 0;
+		&:last-child {
+			//border-bottom: none;
+		}
+		> a {
+			text-decoration: none;
+		}
+	}
+}
+
+.color-addons() when (@x = -1) {
+	ul.avn-list-nav > li { border-bottom-color: rgba(0,0,0,@alpha-medium); }
+}
+.color-addons() when (@x = +1) {
+	ul.avn-list-nav > li { border-bottom-color: rgba(255,255,255,@alpha-medium); }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+blockquote {
+	&:extend(.avn-text-margin);
+	margin-left: @padding-h;
+	margin-right: @padding-h;
+	border-left: (@border-width * 4) solid rgba(0,0,0,@alpha-low);
+	padding-left: @padding-h;
+	text-align: justify;
+	font-style: italic;
+}
+
+.color-addons() when (@x = -1) {
+	blockquote { border-left-color: rgba(0,0,0,@alpha-low); }
+}
+.color-addons() when (@x = +1) {
+	blockquote { border-left-color: rgba(255,255,255,@alpha-low); }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+img { vertical-align: middle; }
+a img { border: none; }
+
+////////////////////////////////////////////////////////////////////////////////
+
+hr {
+	margin: @line-height 0;
+	border: none;
+	border-top: @border-width solid rgba(0,0,0,@alpha-high);
+	border-bottom: @border-width solid rgba(255,255,255,@alpha-low);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+details {
+	&:extend(.avn-text-margin);
+	border-radius: @border-radius-small;
+	border: @border-width solid transparent;
+	padding: @padding-v @padding-h;
+}
+summary {
+	outline: none;
+}
+details[open] {
+	border-color: rgba(0,0,0,@alpha-medium);
+	background-color: rgba(0,0,0,@alpha-lowest);
+	summary { border-bottom: @border-width solid rgba(0,0,0,@alpha-medium); }
+}
+details, summary {
+	transition: border ease @transition-faster, background ease @transition-faster;
+}
+
+.color-addons() when (@x = -1) {
+	details[open] {
+		border-color: rgba(0,0,0,@alpha-medium);
+		background-color: rgba(0,0,0,@alpha-lowest);
+		summary { border-bottom-color: rgba(0,0,0,@alpha-medium); }
+	}
+}
+.color-addons() when (@x = +1) {
+	details[open] {
+		border-color: rgba(255,255,255,@alpha-medium);
+		background-color: rgba(255,255,255,@alpha-lowest);
+		summary { border-bottom-color: rgba(255,255,255,@alpha-medium); }
+	}
+}

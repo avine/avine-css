@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Flex spacing - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../prism/prism.css" />
+	<script src="../../prism/prism.js"></script>
+</head>
+<body class="avn-env avn-align-center">
+
+	<script>
+		demoClick('Area Fill', function () {
+			$('#demo-target').toggleClass('avn-area-spacing').children().toggleClass('avn-area-fill');
+		}).demoClick('Flex radius', function () {
+			$('#demo-target').children().toggleClass('avn-flex-radius');
+		}).demoClick('Flex no-pad', function () {
+			$('#demo-target').children().toggleClass('avn-flex-nopad');
+		}).demoClick('Flex large', function () {
+			$('#demo-target').children().toggleClass('avn-flex-spacing avn-flex-spacing-large');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="avn-area-bound" id="demo-target">
+		<div class="avn-flex-spacing">
+			<div class="avn-flex">
+
+				<div class="avn-flex-12 demo-color-switcher">12</div>
+
+				<div class="avn-flex-1 avn-color-grey-lighter">1</div>
+				<div class="avn-flex-11 demo-color-switcher">11</div>
+
+				<div class="avn-flex-2 avn-color-grey-lighter">2</div>
+				<div class="avn-flex-10 demo-color-switcher">10</div>
+
+				<div class="avn-flex-3 avn-color-grey-lighter">3</div>
+				<div class="avn-flex-9 demo-color-switcher">9</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-4 avn-color-grey-lighter">4</div>
+				<div class="avn-flex-8 demo-color-switcher">8</div>
+
+				<div class="avn-flex-5 avn-color-grey-lighter">5</div>
+				<div class="avn-flex-7 demo-color-switcher">7</div>
+
+				<div class="avn-flex-6 avn-color-grey-lighter">6</div>
+				<div class="avn-flex-6 demo-color-switcher">6</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div id="demo-doc">
+<hgroup>
+	<h2>Grille de mise en page</h2>
+	<h3>Avec espacement</h3>
+</hgroup>
+
+<p>Envelopper la classe <code>.avn-flex</code> avec <code>.avn-flex-spacing</code> pour ajouter un espace entre les cellules de la grille.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-spacing">
+	<div class="avn-flex">
+		<div>Lorem ipsum</div>
+		<div>Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+<p>Pour augmenter l'espace entre les cellules, utilisez la classe <code>.avn-flex-spacing-large</code> à la place de <code>.avn-flex-spacing</code>.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-spacing-large">
+	<div class="avn-flex">
+		<div>Lorem ipsum</div>
+		<div>Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+<p>Ajoutez la classe <code>.avn-flex-radius</code> pour arrondir les angles des cellules.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-spacing avn-flex-radius">
+	<div class="avn-flex">
+		<div>Lorem ipsum</div>
+		<div>Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+<p>Ajoutez la classe <code>.avn-flex-nopad</code> pour retirer les marges latérales de la grille.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-spacing avn-flex-nopad">
+	<div class="avn-flex">
+		<div>Lorem ipsum</div>
+		<div>Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+<p>Définissez si besoin une couleur spécifique pour chaque cellule.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex-spacing">
+	<div class="avn-flex">
+		<div class="avn-color-grey-light">Lorem ipsum</div>
+		<div class="avn-color-grey-dark">Lorem ipsum</div>
+	</div>
+</div>
+
+</div>
+
+<div class="avn-text-box avn-color-grey-dark">
+	<p class="avn-icon avn-icon-block avn-icon-before avn-icon-info">A noter qu'avec la classe <code>.avn-flex-spacing</code> seule, vous ne pouvez pas définir une couleur globale pour l'ensemble des cellules, comme c'est le cas avec la classe combinée <code>.avn-flex-border.avn-flex-spacing</code>.</p>
+</div>
+
+</div>
+</body>
+</html>

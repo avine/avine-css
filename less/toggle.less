@@ -1,0 +1,33 @@
+/* ------
+   Toggle
+   ------ */
+
+.avn-toggle-size(@width, @name) {
+
+	.avn-toggle-@{name} {
+		@media (max-width: (@width - 1)) {
+			.avn-toggle-target {
+				position: absolute;
+				left: -9999px;
+				opacity: 0;
+				transition: opacity .25s ease;
+			}
+			&.avn-hover:hover, &.avn-hover-jsOver {
+				.avn-toggle-target {
+					position: relative;
+					left: 0;
+					opacity: 1;
+				}
+			}
+		}
+		@media (min-width: (@width)) {
+			.avn-toggle-source {
+				display: none;
+			}
+		}
+	}
+
+}
+.avn-toggle-size(@width-large, large);
+.avn-toggle-size(@width-medium, medium);
+//.avn-toggle-size(@width-min, small); // FIXME y a pas de sens pour le média < 240px

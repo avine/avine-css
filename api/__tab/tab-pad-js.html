@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Tab pad Js</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+
+	<script src="../../js/avine-js.js"></script>
+	<script src="../../js/avine-css.js"></script>
+
+	<style>
+		#demo-action {
+			position: fixed;
+			z-index: 9999;
+			right: 5px;
+			top: 5px;
+			padding: 5px 10px;
+			box-shadow: -1px 1px 2px rgba(0,0,0,.1);
+			border-radius: 3px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+		}
+		#demo-action .demo-action-on {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body class="avn-env avn-color-grey-lighter">
+  <div class="avn-area-fill avn-color-grey-lighter">
+	<div class="avn-area-bound">
+
+
+
+		<div id="demo-action">
+			Options :
+			<a href="#" id="mouseOver">mouseOver</a>
+			&nbsp;
+			<a href="#" id="mouseOut">mouseOut</a>
+			&nbsp;
+			<a href="#" id="noCollapse">noCollapse</a>
+			<br />
+			Toggle items :
+			<a href="#" class="action-toggle">0</a>
+			&nbsp;
+			<a href="#" class="action-toggle">1</a>
+			&nbsp;
+			<a href="#" class="action-toggle">2</a>
+		</div>
+
+		<script>
+			$.dom.ready(function () {
+				// Init all tabs
+				$('.avn-tab').tab();
+				// Customize options
+				var options = {
+					mouseOver: false,
+					mouseOut: false,
+					noCollapse: false,
+				};
+				for (var opt in options) (function (opt) {
+					$('#' + opt).click(function (e) {
+						e.preventDefault();
+						$(this).toggleClass('demo-action-on');
+						options[opt] = !options[opt];
+						$('.avn-tab').tab(options);
+					});
+				})(opt);
+				// Toggle items
+				$('.action-toggle').click(function (e) {
+					e.preventDefault();
+					var $this = $(this), isOn = $this.hasClass('demo-action-on'), index = $this.text();
+					$('.action-toggle').removeClass('demo-action-on');
+					if (!isOn) $this.addClass('demo-action-on');
+					$('.avn-tab').tab('toggle', index);
+				});
+				// Handle events
+				$('.avn-tab').on('tabOpen, tabClose', function (e, data) {
+					$.tool.console.log('\n> event="' + e.type + '"', 'at index=', data.index);
+					$.tool.console.log('for item=', data.item);
+					$.tool.console.log('in tab=', this);
+				});
+			});
+		</script>
+
+
+
+		<h1>Tab pad</h1>
+
+		<h2>To bottom</h2>
+		<div class="avn-tab-wrap">
+			<div class="avn-pad avn-tab avn-tab-dir-bottom">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<h2>To top</h2>
+		<br />
+		<div class="avn-tab-wrap avn-tab-wrap-center">
+			<div class="avn-pad avn-tab avn-tab-dir-top">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h2>To bottom left</h2>
+		<div class="avn-tab-wrap avn-tab-wrap-center">
+			<div class="avn-pad avn-tab avn-tab-dir-bottom">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<h2>To top left</h2>
+		<br />
+		<div class="avn-tab-wrap avn-tab-wrap-right">
+			<div class="avn-pad avn-tab avn-tab-dir-top">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr />
+		<h1>Fixed</h1>
+
+		<h2>To bottom</h2>
+		<div class="avn-tab-wrap">
+			<div class="avn-pad avn-tab avn-tab-fixed avn-tab-dir-bottom">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<h2>To top</h2>
+		<br />
+		<div class="avn-tab-wrap avn-tab-wrap-center">
+			<div class="avn-pad avn-tab avn-tab-fixed avn-tab-dir-top">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h2>To bottom left</h2>
+		<div class="avn-tab-wrap avn-tab-wrap-center">
+			<div class="avn-pad avn-tab avn-tab-fixed avn-tab-dir-bottom">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<h2>To top left</h2>
+		<br />
+		<div class="avn-tab-wrap avn-tab-wrap-right">
+			<div class="avn-pad avn-tab avn-tab-fixed avn-tab-dir-top">
+				<div class="avn-grid avn-grid-medium">
+					<div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 1</span><div>Sub item 1</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 2</span><div>Sub item 2</div>
+						</div>
+
+					</div><div>
+
+						<div class="avn-tab-item avn-tab-dir-left">
+							<span>Item 3</span><div>Sub item 3</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+
+
+	</div>
+  </div>
+</body>
+</html>

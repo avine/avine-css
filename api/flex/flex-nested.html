@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Flex nested - AvineCSS framework</title>
+
+	<link rel="stylesheet" href="../../css/avine-css.css" />
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css" />
+
+	<script src="../../js/avine-js.js"></script>
+
+	<link rel="stylesheet" href="../../tools/tools.css" />
+	<script src="../../tools/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../prism/prism.css" />
+	<script src="../../prism/prism.js"></script>
+</head>
+<body class="avn-env avn-align-center">
+
+	<script>
+		demoClick('Area Fill', function () {
+			$('#demo-target').toggleClass('avn-area-spacing').children().toggleClass('avn-area-fill');
+		}).demoClick('Flex no-pad', function () {
+			$('#demo-target').children().toggleClass('avn-flex-nopad');
+		});
+
+		demoClick('Flex border', function () {
+			$('#demo-target').children().toggleClass('avn-flex-border');
+		}).demoClick('Flex spacing', function () {
+			$('#demo-target').children().toggleClass('avn-flex-spacing');
+		});
+
+		demoClick('Nested flex border', function () {
+			$('#demo-nested-target').toggleClass('avn-flex-border'); 
+		}).demoClick('Nested flex spacing', function () {
+			$('#demo-nested-target').toggleClass('avn-flex-spacing');
+		}).demoClick('Nested flex no-pad', function () {
+			$('#demo-nested-target').toggleClass('avn-flex-nopad');
+		});
+	</script>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="avn-area-bound" id="demo-target">
+		<div class="demo-color-switcher">
+			<div class="avn-flex">
+
+				<div class="avn-flex-12">12</div>
+
+			</div><div class="avn-flex avn-flex-nowrap">
+
+				<div class="avn-flex-1 avn-color-grey-lighter">_1_</div>
+				<div class="avn-flex-11">11</div>
+
+			</div><div class="avn-flex">
+
+				<div class="avn-flex-2 avn-color-grey-lighter">2</div>
+				<div class="avn-flex-10">10</div>
+
+				<div class="avn-flex-3 avn-color-grey-lighter">3</div>
+				<div class="avn-flex-9">9</div>
+
+				<div class="avn-flex-4 avn-color-grey-lighter">4</div>
+				<div class="avn-flex-8 avn-color-grey-light" id="demo-nested-target">
+					<!-- Nested flex -->
+					<div class="avn-flex">
+						<div class="avn-flex-3 avn-color-grey-dark">3</div>
+						<div class="avn-flex-9">9</div>
+
+						<div class="avn-flex-4 avn-color-grey-dark">4</div>
+						<div class="avn-flex-8">8</div>
+
+					</div>
+				</div>
+
+				<div class="avn-flex-5 avn-color-grey-lighter">5</div>
+				<div class="avn-flex-7">7</div>
+
+				<div class="avn-flex-6 avn-color-grey-lighter">6</div>
+				<div class="avn-flex-6">6</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div id="demo-doc">
+<hgroup>
+	<h2>Grille de mise en page</h2>
+	<h3>Imbrication</h3>
+</hgroup>
+
+<p>Vous pouvez imbriquer les grilles de mise en page tout naturellement de la manière suivante :</p>
+
+<div class="demo-code">
+
+<div class="avn-flex">
+	<div class="avn-flex-6">
+		Lorem ipsum
+	</div>
+	<div class="avn-flex-6">
+		<!-- Nested flex -->
+		<div class="avn-flex">
+			<div class="avn-flex-4">Lorem ipsum</div>
+			<div class="avn-flex-4">Lorem ipsum</div>
+			<div class="avn-flex-4">Lorem ipsum</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<p>Vous pouvez également ajouter les classes <code>.avn-flex-border</code> et  <code>.avn-flex-spacing</code> au niveau des grilles imbriquées.</p>
+
+<div class="demo-code">
+
+<div class="avn-flex">
+	<div class="avn-flex-6">
+		Lorem ipsum
+	</div>
+	<div class="avn-flex-6 avn-flex-border avn-flex-spacing"><!-- Using -border and -spacing -->
+		<!-- Nested flex -->
+		<div class="avn-flex">
+			<div>Lorem ipsum</div>
+			<div>Lorem ipsum</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>
