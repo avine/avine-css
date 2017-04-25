@@ -19,7 +19,9 @@
 	.fill-gradient-add();
 }
 .avn-area-nograd {
-	.fill-gradient-remove();
+	&.avn-area-fill , &.avn-area-bound > .avn-area-fill {
+		.fill-gradient-remove();
+	}
 }
 .avn-area-border {
 	border-bottom-width: @border-width;
@@ -28,7 +30,7 @@
 .avn-area-bound > .avn-area-fill {
 	border-color: inherit;
 }
-@media (min-width: @width-large) {
+@media (min-width: (@width-large + 1)) {
 	.avn-area-bound {
 		> .avn-area-fill {
 			border-left-width: @border-width;
@@ -37,18 +39,20 @@
 				border-bottom-width: @border-width;
 			}
 		}
+		// Hide the border-bottom-width of the previous .avn-area-bound > .avn-area-fill:last-child
+		// Kown issue when using .avn-area-bound without nested .avn-area-fill
 		& + & {
 			margin-top: -@border-width;
 		}
 		&.avn-area-spacing {
-			margin-top: @margin;
+			margin-top: @margin; // overwrite the previous rule margin-top: -@border-width;
 		}
 	}
 	.avn-area-spacing {
 		margin-bottom: @margin;
 		box-shadow: @box-shadow;
 		border-radius: @border-radius-large;
-		.border-radius-child-inherit();
+		.border-radius-inheritance();
 	}
 	.avn-area-noshad {
 		box-shadow: none !important;
@@ -65,8 +69,4 @@
 }
 .avn-area-nopad {
 	padding: 0 !important;
-}
-
-.avn-area-margin {
-	margin: @margin !important;
 }

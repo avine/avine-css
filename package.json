@@ -1,0 +1,33 @@
+{
+  "name": "avine-css",
+  "version": "0.0.5",
+  "description": "Atomic CSS framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "less": "lessc --autoprefix --source-map less/avine-css.less css/avine-css.css",
+    "cp-avine-js": "shx cp bower_components/avine-js/index.js js/avine-js.js",
+    "cp-prism": "shx cp bower_components/prism/prism.js prism/prism.js && shx cp bower_components/prism/themes/prism-okaidia.css prism/prism.css",
+    "cp-fa": "shx cp -r bower_components/font-awesome/css/ bower_components/font-awesome/fonts/ font-awesome/",
+    "build": "npm run less -s && npm run cp-avine-js -s && npm run cp-prism -s && npm run cp-fa -s",
+    "start": "http-server ./ -o -c0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avine/avine-css.git"
+  },
+  "author": "Stéphane Francel <contact@avine.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avine/avine-css/issues"
+  },
+  "homepage": "https://github.com/avine/avine-css#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "http-server": "^0.9.0",
+    "less": "^2.7.2",
+    "less-plugin-autoprefix": "^1.5.1",
+    "shx": "^0.2.2"
+  },
+  "dependencies": {}
+}

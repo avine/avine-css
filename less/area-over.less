@@ -1,1 +1,77 @@
 
+/* area-over */
+
+@area-over: 10px;
+
+@media (min-width: (@width-large + @area-over * 4)) {
+	.avn-area-over {
+		margin-left: -@area-over;
+		margin-right: -@area-over;
+		border-width: @border-width;
+		background-color: @background-color;
+		&:before, &:after {
+			border-color: darken(@border-color, 9.75%);
+		}
+		.border-radius-inheritance();
+	}
+	.avn-area-over-top {
+		border-radius: inherit;
+		border-bottom-left-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+		&:before, &:after {
+			bottom: -(@area-over + @border-width);
+		}
+	}
+	.avn-area-over-bottom {
+		border-radius: inherit;
+		border-top-left-radius: 0 !important;
+		border-top-right-radius: 0 !important;
+		&:before, &:after {
+			top: -(@area-over + @border-width);
+		}
+	}
+	.avn-area-over-top, .avn-area-over-bottom {
+		&:before, &:after {
+			content: "\0000a0";
+			height: 0;
+			width: 0;
+			border-width: @area-over;
+			border-style: solid;
+			border-top-color: transparent !important;
+			border-bottom-color: transparent !important;
+			position: absolute;
+		}
+		&:before {
+			left: -(@area-over + @border-width);
+		}
+		&:after {
+			right: -(@area-over + @border-width);
+		}
+	}
+
+	// clip: rect(top, right, bottom, left)
+
+	.avn-area-over-top:before		{ clip: rect(@area-over, auto, auto, @area-over); }
+	.avn-area-over-top:after		{ clip: rect(@area-over, @area-over, auto, auto); }
+	.avn-area-over-bottom:before	{ clip: rect(auto, auto, @area-over, @area-over); }
+	.avn-area-over-bottom:after		{ clip: rect(auto, @area-over, @area-over, auto); }
+
+	// area-over + area-fill
+
+	.avn-area-over + .avn-area-fill {
+		margin-top: -@border-width;
+	}
+}
+
+.color-addons() {
+	&.avn-area-over {
+		&:before, &:after {
+			border-color: darken(@border, 9.75%);
+		}
+		&.avn-color-transition {
+			&:before, &:after {
+				.avn-color-transition;
+			}
+		}
+	}
+}

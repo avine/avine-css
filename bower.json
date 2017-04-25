@@ -1,0 +1,22 @@
+{
+  "name": "avine-css",
+  "description": "Atomic CSS framework",
+  "main": "index.js",
+  "authors": [
+    "Stéphane Francel <contact@avine.io>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/avine/avine-css",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "avine-js": "https://raw.githubusercontent.com/avine/avine-js/master/avine-js.js",
+    "prism": "^1.6.0",
+    "font-awesome": "^4.7.0"
+  }
+}

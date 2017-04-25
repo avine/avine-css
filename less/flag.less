@@ -1,0 +1,155 @@
+
+/* flag */
+
+// Note: the flag size is based on @area-over
+
+@flag-shadow: 1px;
+
+@flag-padding: .125em .5em;
+
+.avn-flag {
+	margin: 15px 0;
+	padding: @flag-padding;
+	border-radius: @border-radius-small !important;
+	border: @border-width solid @border-color;
+	background-color: @background-color;
+	text-shadow: 0 -(1px * @background-x) 0 @text-shadow-color;
+	color: @text-color;
+}
+
+@media (min-width: (@width-large + @area-over * 4)) {
+
+	.avn-flag {
+		position: absolute;
+		z-index: 1;
+		margin: 0;
+		max-width: 33%;
+		border-radius: @border-radius-medium;
+	}
+
+	// flag corner
+
+	.avn-flag:after {
+		content: "\0000a0";
+		height: 0;
+		width: 0;
+		border-width: @area-over;
+		border-style: solid;
+		border-color: darken(@border-color, 9.75%);
+		border-top-color: transparent !important;
+		border-bottom-color: transparent !important;
+		position: absolute;
+	}
+
+	.avn-flag-top-left:after,		.avn-flag-right-bottom:after	{ clip: rect(auto, @area-over, @area-over, auto); }
+	.avn-flag-top-right:after,		.avn-flag-left-bottom:after		{ clip: rect(auto, auto, @area-over, @area-over); }
+	.avn-flag-bottom-left:after,	.avn-flag-right-top:after		{ clip: rect(@area-over, @area-over, auto, auto); }
+	.avn-flag-bottom-right:after,	.avn-flag-left-top:after		{ clip: rect(@area-over, auto, auto, @area-over); }
+
+	@flag-x1: -1 * @area-over - @border-width;
+	@flag-x2: -2 * @area-over - @border-width;
+
+	.avn-flag-top-left:after		{ top:		-@border-width;	right:	@flag-x2; }
+	.avn-flag-top-right:after		{ top:		-@border-width;	left:	@flag-x2; }
+	.avn-flag-bottom-left:after		{ bottom:	-@border-width;	right:	@flag-x2; }
+	.avn-flag-bottom-right:after	{ bottom:	-@border-width;	left:	@flag-x2; }
+
+	.avn-flag-left-top:after		{ left:		@flag-x1; bottom:	@flag-x1; }
+	.avn-flag-left-bottom:after		{ left:		@flag-x1; top:		@flag-x1; }
+	.avn-flag-right-top:after		{ right:	@flag-x1; bottom:	@flag-x1; }
+	.avn-flag-right-bottom:after	{ right:	@flag-x1; top:		@flag-x1; }
+
+	// flag position and border-radius (works for whatever the parent's padding is...)
+
+	.flag-shadow(@l; @t) { box-shadow: (@l * @flag-shadow) (@t * @flag-shadow) @flag-shadow rgba(0,0,0,@alpha-low); }
+
+	.avn-flag-top-left		{ top:		@flag-x1; left:		@padding-h;	border-top-right-radius:	0 !important; .flag-shadow( 1,  1); }
+	.avn-flag-top-right		{ top:		@flag-x1; right:	@padding-h;	border-top-left-radius:		0 !important; .flag-shadow(-1,  1); }
+	.avn-flag-bottom-left	{ bottom:	@flag-x1; left:		@padding-h;	border-bottom-right-radius:	0 !important; .flag-shadow( 1, -1); }
+	.avn-flag-bottom-right	{ bottom:	@flag-x1; right:	@padding-h;	border-bottom-left-radius:	0 !important; .flag-shadow(-1, -1); }
+
+	.avn-flag-left-top		{ left:		@flag-x1; top:		@padding-v; border-bottom-left-radius:	0 !important; .flag-shadow( 1,  1); }
+	.avn-flag-left-bottom	{ left:		@flag-x1; bottom:	@padding-v; border-top-left-radius:		0 !important; .flag-shadow( 1, -1); }
+	.avn-flag-right-top		{ right:	@flag-x1; top:		@padding-v; border-bottom-right-radius:	0 !important; .flag-shadow(-1,  1); }
+	.avn-flag-right-bottom	{ right:	@flag-x1; bottom:	@padding-v; border-top-right-radius:	0 !important; .flag-shadow(-1, -1); }
+
+	// floating flag (works only when the parent's padding is like .avn-area-pad)
+
+	.avn-flag-float {
+		position: relative;
+
+		@flag-pad-v: (@padding-v / 2);
+		@flag-pad-h: (@padding-h / 2);
+
+		&.avn-flag-top-left {
+			float: left;
+			left: auto;
+			margin: -@padding-v @flag-pad-h 0 0;
+		}
+		&.avn-flag-top-right {
+			float: right;
+			right: auto;
+			margin: -@padding-v 0 0 @flag-pad-h;
+		}
+		// Not available positions:
+		&.avn-flag-bottom-left, &.avn-flag-bottom-right {
+			position: absolute; // just restore the position
+		}
+
+		&.avn-flag-left-top, &.avn-flag-left-bottom {
+			float: left;
+			margin: @flag-pad-v 0 @flag-pad-v -@padding-h;
+		}
+		&.avn-flag-right-top, &.avn-flag-right-bottom {
+			float: right;
+			margin: @flag-pad-v -@padding-h @flag-pad-v 0;
+		}
+		&.avn-flag-left-top, &.avn-flag-right-top { top: auto; }
+		&.avn-flag-left-bottom, &.avn-flag-right-bottom { bottom: auto; }
+
+	}
+
+}
+
+/* optional scrollable content */
+
+.avn-flag-scroll {
+	padding: 0 !important; // remove padding
+	> * {
+		overflow: auto;
+		border-radius: inherit;
+		padding: @flag-padding; // restore padding
+
+		// Add inline style to define the content width and/or height... (*)
+	}
+}
+
+@media (max-width: (@width-large + @area-over * 4 - 1)) {
+
+	.avn-flag {
+		&:first-child { margin-top: 0; }
+		&:last-child { margin-bottom: 0; }
+	}
+
+	// Remove inline style (*)
+	.avn-flag-scroll > * {
+		height: auto !important;
+		width: auto !important;
+		min-height: auto !important;
+		min-width: auto !important;
+	}
+
+}
+
+.color-addons() {
+	&.avn-flag {
+		&:after {
+			border-color: darken(@border, 9.75%);
+		}
+		&.avn-color-transition {
+			&:after {
+				.avn-color-transition;
+			}
+		}
+	}
+}

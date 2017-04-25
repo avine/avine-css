@@ -3,9 +3,12 @@
    ---- */
 
 .avn-env {
+
+	// TODO: Mettre ce pavé dans un mixin
 	background-color: @background-color;
 	text-shadow: 0 -(1px * @background-x) 0 @text-shadow-color;
 	color: @text-color !important;
+
 	line-height: @line-height;
 	font-family: @font-family;
 	body& {
@@ -114,6 +117,7 @@ ul.avn-list-nav {
 			//border-bottom: none;
 		}
 		> a {
+			display: block;
 			text-decoration: none;
 		}
 	}

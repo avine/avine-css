@@ -229,6 +229,11 @@
 			}
 		},
 
+		// Return expected signature of arguments
+		// Examples :
+		// Bi.tool.signature([1], [Bi.tool.isNumber, Bi.tool.isBoolean])			=>  [1, undefined]
+		// Bi.tool.signature([1, true], [Bi.tool.isNumber, Bi.tool.isBoolean])	=>  [1, true]
+		// Bi.tool.signature([true], [Bi.tool.isNumber, Bi.tool.isBoolean])		=>  [undefined, true]
 		signature: function (args, types) {
 			for (var s = [], j = 0, i = 0; i < types.length; i++) s[i] = types[i](args[j]) ? args[j++] : undefined;
 			return s;
@@ -1667,7 +1672,7 @@
 
 })(this);
 
-// avine-Core.js
+// avine-core.js
 (function (window) {
 	"use strict";
 
@@ -1677,7 +1682,15 @@
 
 	// This class helps to call asynchronous methods sequentially without using nested functions
 	var Core = function () {
-		this._stack = {
+		this._stack = Core._emptyStack();
+		this.lastResult = undefined; // Public 'dynamic' property
+		this.currentMethod = undefined; // Public 'dynamic' property
+		var builder = Core._getBuilder(Core); // = 'buildCore'
+		if (this[builder]) this[builder].apply(this, arguments); // Call the builder method (if defined) and propagate arguments
+	};
+
+	Core._emptyStack = function () {
+		return {
 			fn: [], // The stack of functions to execute sequentially
 			start: false, // Is execution started ?
 			stop: false, // Is execution stopped ?
@@ -1686,13 +1699,40 @@
 			callback: { failure: [], complete: [] },
 			listeners: []
 		};
-		this.lastResult = undefined; // Public 'dynamic' property
-		this.currentMethod = undefined; // Public 'dynamic' property
-		var builder = Core._getBuilder(Core); // = 'buildCore'
-		if (this[builder]) this[builder].apply(this, arguments); // Call the builder method (if defined) and propagate arguments
 	};
 
 	Core.prototype = {
+
+		constructor: Core,
+
+		// Clone the Core instance to create parallel call stacks and prevent competitors call problems !
+		clone: function (callbacks, listeners) {
+			var clone = Object.create(this);
+			// Each clone has his own stack
+			clone._stack = Core._emptyStack();
+			clone.lastResult = undefined;
+			clone.currentMethod = undefined;
+			// Overwrite the inherited method 'setter' to affect the clone prototype (the original instance and not the clone instance)
+			clone.setter = this.setter.bind(this); // This is equivalent to Object.getPrototypeOf(clone)[key] = value;
+			// Clone callbacks and listeners
+			if (undefined === callbacks || !!callbacks) {
+				clone._stack.callback.failure = [].concat(this._stack.callback.failure);
+				clone._stack.callback.complete = [].concat(this._stack.callback.complete);
+			}
+			if (undefined === listeners || !!listeners) {
+				clone._stack.listeners = [].concat(this._stack.listeners);
+			}
+			return clone;
+		},
+
+		// Set a property to 'this' (just to make this method available for the original and the clones instances)
+		setter: function (key, value) {
+			if (undefined === value) {
+				delete this[key]; // delete key
+			} else {
+				this[key] = value; // assign value
+			}
+		},
 
 		// Push asynchronous function in the stack (notice that when it's called in the event handler, it can break the propagation of the last result)
 		then: function (fn, argsStack, invoke) {
@@ -1735,7 +1775,6 @@
 			if (!_f.length) _f[0] = [];
 			_f[0].unshift(fn); // Execute the function immediately after
 
-			//this._stack.start || this.done(this.lastResult); // The first push starts the stack execution
 			if (!this._stack.start) {
 				this._stack.start = true;
 				// Schedule the 'done' method to be executed once the current javascript call stack is empty
@@ -1746,44 +1785,42 @@
 
 		// Call the next asynchronous function in the stack
 		done: function (result) {
-			//this._stack.start = true;
-			//setTimeout(function () { // Schedule the 'done' method to be executed once the current javascript call stack is empty
-				this.lastResult = result; // Make the last result available in the next method as a property
-				var _f = this._stack.fn;
-				while (_f.length) {
-					if (_f[0].length) {
-						var fn = _f[0].shift(); // Get the next function in the FIFO stack
-						if (_f[0].length) _f.unshift([]); // Dedicate an empty main stack to the next method (defer what remains in the stack)
-						var fnCall = function () {
-							this.currentMethod = undefined; // Reset the previous method name (in case the next method is anonymous)
-							// Call the function in the appropriate context
-							// In case the next function is anonymous, make the last result also available as its parameter (in case the argsStack parameter in the 'then' method was empty)
-							return fn.call(this, this.lastResult,
-								function(r) { this.done(r); }.bind(this),
-								function(r) { this.fail(r); }.bind(this)
-							);
-						}.bind(this);
-						// Execute the function (check its return and _stack.loop property to determine whether the function should be looped)
-						return "once" === fnCall() || false === this._stack.loop || this._stack.done.push(fnCall);
-					} else {
-						_f.shift();
-					}
-				};
-				// When the FIFO stack is empty, it means that the execution is ended
-				// (until an asynchronous call to the 'then' method occurs and restarts execution)
-				this._stack.start = false; // Make possible the restart of execution
-				this._callback('complete'); // Execute registered 'complete' callbacks
-				// Loop the stack if requested
-				if (this._stack.loop) {
-					while (this._stack.done.length) this.then(this._stack.done.shift());
-					if (tool.isNumber(this._stack.loop)) this._stack.loop--;
+			this.lastResult = result; // Make the last result available in the next method as a property
+			var _f = this._stack.fn;
+			while (_f.length) {
+				if (_f[0].length) {
+					var fn = _f[0].shift(); // Get the next function in the FIFO stack
+					if (_f[0].length) _f.unshift([]); // Dedicate an empty main stack to the next method (defer what remains in the stack)
+					var fnCall = function () {
+						this.currentMethod = undefined; // Reset the previous method name (in case the next method is anonymous)
+						// Call the function in the appropriate context
+						// In case the next function is anonymous, make the last result also available as its parameter (in case the argsStack parameter in the 'then' method was empty)
+						return fn.call(this, this.lastResult,
+							function(r) { this.done(r); }.bind(this),
+							function(r) { this.fail(r); }.bind(this)
+						);
+					}.bind(this);
+					// Execute the function (check its return and _stack.loop property to determine whether the function should be looped)
+					return "once" === fnCall() || false === this._stack.loop || this._stack.done.push(fnCall);
+				} else {
+					_f.shift();
 				}
-			//}.bind(this), 0);
+			};
+			// When the FIFO stack is empty, it means that the execution is ended
+			// (until an asynchronous call to the 'then' method occurs and restarts execution)
+			this._stack.start = false; // Make possible the restart of execution
+			this._callback('complete'); // Execute registered 'complete' callbacks
+			// Loop the stack if requested
+			if (this._stack.loop) {
+				while (this._stack.done.length) this.then(this._stack.done.shift());
+				if (tool.isNumber(this._stack.loop)) this._stack.loop--;
+			}
 		},
 
 		// Get the number of remaining functions in the stack
 		stackLength: function () {
 			for (var length = 0, _f = this._stack.fn, i = 0; i < _f.length; i++) length += _f[i].length;
+			if (this._stack.start) length++; // Add to length the asynchronous function which is being executed
 			return length;
 		},
 
@@ -1804,7 +1841,8 @@
 		// Call the 'done' method of another Core instance
 		thenDone: function (_this) {
 			if (this === _this) {
-				tool.console.error("Core.thenDone: Improper use of the method. Instead of calling this.thenDone(this) simply call this.done().");
+				tool.console.error("Core.thenDone: Improper use of the method. " +
+					"Instead of calling this.thenDone(this) simply call this.done().");
 				this.done(); // Fallback
 				return this;
 			}
@@ -1816,12 +1854,16 @@
 
 		// Call the 'done' method after all listed cores are ended. Use this method instead of: .done()
 		doneWhen: function (/* core1, core2, ... */) {
-			var cores = arguments, length = 0;
-			for (var i = 0; i < cores.length; i++) cores[i].onComplete(function () {
-				if (++length !== cores.length) return;
-				for (var results = [], i = 0; i < cores.length; i++) results.push(cores[i].lastResult); // Collect each last result
+			var callDone = function (args) {
+				for (var results = [], i = 0; i < args.length; i++) results.push(args[i].lastResult);
 				this.done(results);
-			}.bind(this));
+			}.bind(this, arguments);
+			for (var cores = [], length = 0, i = 0; i < arguments.length; i++) {
+				if (arguments[i].stackLength()) cores.push(arguments[i].onComplete(function () {
+					if (++length === cores.length) callDone();
+				}));
+			}
+			if (!cores.length) callDone();
 			return this;
 		},
 
@@ -1888,21 +1930,27 @@
 		},
 
 		// Register callback on failure
-		onFailure: function (fn) {
+		onFailure: function (fn, once) {
+			fn._once = !!once;
 			this._stack.callback.failure.push(fn);
 			return this;
 		},
 
 		// Register callback on complete
-		onComplete: function (fn) {
+		onComplete: function (fn, once) {
+			fn._once = !!once;
 			this._stack.callback.complete.push(fn);
 			return this;
 		},
 
 		// Execute registered callbacks
 		_callback: function (type, data) {
-			var fn = this._stack.callback[type];
-			for (var i = 0; i < fn.length; i++) fn[i].call(this, data);
+			var fn = this._stack.callback[type], newFn = [];
+			for (var i = 0; i < fn.length; i++) {
+				fn[i].call(this, data);
+				fn[i]._once || newFn.push(fn[i]);
+			}
+			this._stack.callback[type] = newFn;
 		},
 
 		// Trigger Core event
@@ -1920,6 +1968,17 @@
 			for (var i = 0; i < events.length; i++) (function (type) {
 				var listen = function (e) {
 					var d = e.detail;
+					if (core && d.event.core !== core) {
+						// In case the event was triggered by a clone, propagate it to its prototype
+						var c = d.event.core;
+						while ((c = Object.getPrototypeOf(c)) && (c instanceof Core)) {
+							if (c === core) {
+								d.event.trigger = d.event.core; // Original event trigger
+								d.event.core = core; // = c
+								break;
+							}
+						}
+					}
 					if (core && d.event.core !== core || type && d.event.type !== type) return;
 					fn.call(this, d.event, d.data);
 				}.bind(this);
@@ -1961,13 +2020,14 @@
 	Core.extendAsync = function (/*fn*/) {
 		var fn = Core._getFnList(arguments);
 		for (var p in fn) if (Core._checkProp.call(this.prototype, p)) (function (core, prop) {
-			core.prototype[prop] = function () {
+			(core.prototype[prop] = function () {
 				var args = arguments, f = function () {
 					this.currentMethod = prop;
 					return fn[prop].apply(this, args); // Call the function in the appropriate context and propagate the original arguments
 				}.bind(this);
-				f.toString = function () { return fn[prop].toString(); }; // Get the original function
 				return this.then(f); // Push the function in the stack (instead of executing it immediately)
+			}).toString = function () {
+				return fn[prop].toString(); // Get the original function
 			};
 			var list = 'extendAsyncList';
 			(core[list] = core[list] || []).push(p); // Helper for debugging (list the available "then" methods)
@@ -1998,7 +2058,7 @@
 			if (this[builder]) this[builder].apply(this, arguments); // Call the builder method (if defined) and propagate arguments
 		};
 		// Inherits Module from _Core
-		Module.prototype = new _Core();
+		Module.prototype = Object.create(_Core.prototype);
 		Module.prototype.constructor = Module; // Correct the constructor pointer (because it points to _Core instead of Module)
 		// Set Module name and path
 		Module.moduleName = Name;

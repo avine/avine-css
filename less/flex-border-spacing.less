@@ -34,12 +34,18 @@
 
 // border and .avn-area-fill
 
-.avn-area-fill.avn-flex-border {
-	> .avn-flex > * {
-		.fill-gradient-add();
+.avn-area-fill {
+	&.avn-flex-border,  > .avn-flex-border { // flex-border might be combined or nested
+		> .avn-flex > * {
+			.fill-gradient-add();
+		}
 	}
-	&.avn-area-nograd > .avn-flex > * {
-		.fill-gradient-remove();
+	&.avn-area-nograd {
+		&.avn-flex-border,  > .avn-flex-border {
+			> .avn-flex > * {
+				.fill-gradient-remove();
+			}
+		}
 	}
 }
 
@@ -117,6 +123,7 @@
 }
 
 // Advanced
+
 .avn-area-bound > .avn-area-fill, // with .avn-area-*
 .avn-flex-border > .avn-flex > .avn-flex-spacing { // with nested .avn-flex-spacing
 	&.avn-flex-nopad {
